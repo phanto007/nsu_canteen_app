@@ -152,6 +152,7 @@ $username = $row['username'];
                 <div class="card-panel">
                   <div class="row">
                     <form class="formValidate" id="formValidate" method="post" action="routers/details-router.php" novalidate="novalidate"class="col s12">
+                      <!--
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-account-circle prefix"></i>
@@ -159,7 +160,8 @@ $username = $row['username'];
                           <label for="username" class="">Username</label>
 						  <div class="errorTxt1"></div>
                         </div>
-                      </div>					
+                      </div>			
+                      -->		
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-account-circle prefix"></i>
@@ -198,6 +200,30 @@ $username = $row['username'];
                           <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
                           <label for="address" class="">Address</label>
 						  <div class="errorTxt6"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <i class="mdi-action-home prefix"></i>
+                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
+                          <label for="address" class="">City</label>
+              <div class="errorTxt6"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <i class="mdi-action-home prefix"></i>
+                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
+                          <label for="address" class="">Country</label>
+              <div class="errorTxt6"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <i class="mdi-action-home prefix"></i>
+                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
+                          <label for="address" class="">Post Code</label>
+              <div class="errorTxt6"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <i class="mdi-communication-phone prefix"></i>
+                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
+                          <label for="address" class="">Phone</label>
+              <div class="errorTxt6"></div>
                         </div>
                         <div class="row">
                           <div class="input-field col s12">
