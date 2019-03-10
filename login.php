@@ -55,7 +55,7 @@ else{
       <form method="post" action="routers/router.php" class="login-form" id="form">
         <div class="row">
           <div class="input-field col s12 center">
-            <p class="center login-form-text">Semicolon food ordering login</p>
+            <p class="center login-form-text">NSU Canteen Login</p>
           </div>
         </div>
         <div class="row margin">
