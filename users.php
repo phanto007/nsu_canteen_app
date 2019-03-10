@@ -184,11 +184,7 @@ include 'includes/connect.php';
 					$key = $row['id'];
 					$sql = mysqli_query($con,"SELECT * from wallet WHERE customer_id = $key;");
 					if($row1 = mysqli_fetch_array($sql)){
-						$wallet_id = $row1['id'];
-						$sql1 = mysqli_query($con,"SELECT * from wallet_details WHERE wallet_id = $wallet_id;");
-						if($row2 = mysqli_fetch_array($sql1)){
-							$balance = $row2['balance'];
-						}
+						$balance = $row1['balance'];
 					}
 					echo '<td><label for="balance">Balance</label><input id="balance" name="'.$row['id'].'_balance" value="'.$balance.'" type="number" data-error=".errorTxt01"><div class="errorTxt01"></div></td></tr>'; 					
 				}
