@@ -11,7 +11,7 @@ $total = $row1['total'];
 }
 if($_POST['payment_type'] == 'Wallet'){
 	$balance = $balance+$total;
-	$sql = "UPDATE wallet_details SET balance = $balance WHERE wallet_id = $wallet_id;";
+	$sql = "UPDATE wallet SET balance = $balance WHERE customer_id ='$user_id';";
 	$con->query($sql);
 }
 header("location: ../orders.php");
