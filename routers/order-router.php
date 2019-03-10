@@ -21,7 +21,7 @@ if($total > $balance){
 }
 
 $balance = $balance - $total;
-$sql = "UPDATE walleT SET balance = $balance WHERE customer_id = $user_id;";
+$sql = "UPDATE wallet SET balance = $balance WHERE customer_id = $user_id;";
 if(!$con->query($sql)){
 	die('DB ERROR');
 }
