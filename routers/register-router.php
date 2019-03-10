@@ -28,6 +28,8 @@ $password = hashData($password);
 
 $sql = "INSERT INTO users (name, username, password, email) VALUES ('$name', '$username', '$password', '$email');";
 $con->query($sql);
+$user_id =  $con->insert_id;
+$sql = "INSERT INTO wallet(customer_id) VALUES ($user_id)";
 
 header("location: ../login.php");
 ?>
