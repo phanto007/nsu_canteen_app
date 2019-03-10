@@ -1,15 +1,25 @@
 <?php
 include '../includes/connect.php';
+include '../includes/functions.php';
+
+
 $user_id = $_SESSION['user_id'];
 
+$name = sanitizeData($_POST['name']);
+$email = sanitizeData($_POST['email']);
 
-$name = htmlspecialchars($_POST['name']);
-$username = htmlspecialchars($_POST['username']);
-$password =  htmlspecialchars($_POST['password']);
-$phone = $_POST['phone'];
-$email = htmlspecialchars($_POST['email']);
-$address = htmlspecialchars($_POST['address']);
-$sql = "UPDATE users SET name = '$name', username = '$username', password='$password', contact=$phone, email='$email', address='$address' WHERE id = $user_id;";
+// Hashing password
+$password = hashData($_POST['password']);
+
+$username = sanitizeData($_POST['username']);
+$address = sanitizeData($_POST['address']);
+$city = sanitizeData($_POST['city']);
+$country = sanitizeData($_POST['country']);
+$post = sanitizeData($_POST['post']);
+$phone = sanitizeData($_POST['phone']);
+
+$sql = "UPDATE users SET name = '$name', password='$password', email='$email', address='$address', city= '$city', post = '$post', country = '$country', contact = '$phone' WHERE id = $user_id;";
+
 if($con->query($sql)==true){
 	$_SESSION['name'] = $name;
 }
