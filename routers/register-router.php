@@ -30,6 +30,6 @@ $sql = "INSERT INTO users (name, username, password, email) VALUES ('$name', '$u
 $con->query($sql);
 $user_id =  $con->insert_id;
 $sql = "INSERT INTO wallet(customer_id) VALUES ($user_id)";
-
+$con->query($sql);
 header("location: ../login.php");
 ?>
