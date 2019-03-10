@@ -1,12 +1,33 @@
 <?php
 include '../includes/connect.php';
-$name = htmlspecialchars($_POST['name']);
-$username = htmlspecialchars($_POST['username']);
-$password = htmlspecialchars($_POST['password']);
-$phone = $_POST['phone'];
 
+// Sanitizing user data
+function sanitizeData($data) {
+	$data = trim($data);
+	$data = stripcslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 
-$sql = "INSERT INTO users (name, username, password, contact) VALUES ('$name', '$username', '$password', $phone);";
+function hashData($data){
+    $options = ['cost' => 12];
+    return password_hash($data, PASSWORD_DEFAULT, $options);
+}
+
+function insertData($data) {
+	return mysqli_real_escape_string($con, $data);
+}
+
+$name = sanitizeData($_POST['name']);
+$email = sanitizeData($_POST['email']);
+$username = sanitizeData($_POST['username']);
+$password = sanitizeData($_POST['password']);
+
+// Hashing password
+$password = hashData($password);
+
+$sql = "INSERT INTO users (name, username, password, email) VALUES ('$name', '$username', '$password', '$email');";
 $con->query($sql);
+
 header("location: ../login.php");
 ?>
