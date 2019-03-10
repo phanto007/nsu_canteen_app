@@ -6,7 +6,7 @@ $description =  htmlspecialchars($_POST['description']);
 foreach ($_POST as $key => $value)
 {
 	if(is_numeric($key)){
-		$total = $total + getPrice($itemID);
+		$total = $total + getPrice($key);
 	}
 }
 $balance = getBalance($user_id);
