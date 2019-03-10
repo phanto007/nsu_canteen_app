@@ -179,7 +179,7 @@ while($row = mysqli_fetch_array($result)){
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-lock-outline prefix"></i>
-                          <input name="password" id="password" type="password" data-error=".errorTxt4">
+                          <input name="password" id="password" type="password" data-error=".errorTxt4" required>
                           <label for="password" class="">Password</label>
 						              <div class="errorTxt4"></div>
                         </div>
@@ -224,7 +224,7 @@ while($row = mysqli_fetch_array($result)){
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-communication-phone prefix"></i>
-                          <textarea name="contact" id="contact" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $contact;?></textarea>
+                          <textarea name="phone" id="contact" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $contact;?></textarea>
                           <label for="contact" class="">Phone</label>
                           <div class="errorTxt6"></div>
                         </div>
@@ -298,35 +298,35 @@ while($row = mysqli_fetch_array($result)){
     $("#formValidate").validate({
         rules: {
             username: {
-                required: true,
+                required: false,
                 minlength: 5,
 				        maxlength: 10
             },
 
             name: {
-                required: true,
+                required: false,
                 minlength: 5,
 				        maxlength: 15
             },
 
             email: {
-				        required: true,
+				        required: false,
 				        maxlength: 35,
 			      },
 
 			      password: {
-  				    required: true,
+  				    required: false,
   				    minlength: 5,
   				    maxlength: 16,
   			      },
 
             phone: {
-				    required: true,
+				    required: false,
 				    minlength: 4,
 				    maxlength: 11
 			},
 			address: {
-				required: true,
+				required: false,
 				minlength: 10,
 				maxlength: 300
 			},
