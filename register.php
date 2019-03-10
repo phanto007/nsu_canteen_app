@@ -35,7 +35,7 @@ else{
 
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
 
-    <style type="text/css">
+  <style type="text/css">
   .input-field div.error{
     position: relative;
     top: -1rem;
@@ -109,31 +109,31 @@ else{
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-social-person prefix"></i>
-            <input name="name" id="name" type="text" data-error=".errorTxt2">
-            <label for="name" class="center-align">Name</label>
-			<div class="errorTxt2"></div>			
+            <i class="mdi mdi-email-outline prefix"></i>
+            <input name="email" id="email" type="text"  data-error=".errorTxt2">
+            <label for="email" class="center-align">Email</label>
+      <div class="errorTxt2"></div>   
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input name="password" id="password" type="password" data-error=".errorTxt3">
-            <label for="password">Password</label>
+            <i class="mdi-social-person prefix"></i>
+            <input name="name" id="name" type="text" data-error=".errorTxt3">
+            <label for="name" class="center-align">Name</label>
 			<div class="errorTxt3"></div>			
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-communication-phone prefix"></i>
-            <input name="phone" id="phone" type="number" data-error=".errorTxt4">
-            <label for="phone">Phone</label>
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input name="password" id="password" type="password" data-error=".errorTxt4">
+            <label for="password">Password</label>
 			<div class="errorTxt4"></div>			
           </div>
-        </div>		
+        </div>	
         <div class="row">
           <div class="input-field col s12">
-			<a href="javascript:void(0);" onclick="document.getElementById('formValidate').submit();" class="btn waves-effect waves-light col s12">Login</a>
+			<a href="javascript:void(0);" onclick="document.getElementById('formValidate').submit();" class="btn waves-effect waves-light col s12">Register</a>
           </div>
           <div class="input-field col s12">
             <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
@@ -173,14 +173,14 @@ else{
                 required: true,
                 minlength: 5				
             },
-			password: {
-				required: true,
-				minlength: 5
-			},
-            phone: {
-				required: true,
-				minlength: 4
-			},
+            email: {
+                required: true,
+                email: true
+            },
+      			password: {
+      				required: true,
+      				minlength: 8
+			      },
         },
         messages: {
             username: {
@@ -191,14 +191,13 @@ else{
                 required: "Enter name",
                 minlength: "Minimum 5 characters are required."
             },
-			password: {
-				required: "Enter password",
-				minlength: "Minimum 5 characters are required."
-			},
-            phone:{
-				required: "Specify contact number.",
-				minlength: "Minimum 4 characters are required."
-			},		
+            email: {
+                required: "Enter email"
+            },
+      			password: {
+      				  required: "Enter password",
+      				  minlength: "Minimum 8 characters are required."
+			     },
         },
         errorElement : 'div',
         errorPlacement: function(error, element) {
