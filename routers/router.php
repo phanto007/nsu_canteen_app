@@ -1,17 +1,38 @@
 <?php
 include '../includes/connect.php';
+
+// Sanitizing user data
+function sanitizeData($data) {
+	$data = trim($data);
+	$data = stripcslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
+function hashData($data){
+    $options = ['cost' => 12];
+    return password_hash($data, PASSWORD_DEFAULT, $options);
+}
+
 $success=false;
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = sanitizeData($_POST['username']);
 
-$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Administrator' AND not deleted;");
+
+
+$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND role='Administrator' AND not deleted;");
 while($row = mysqli_fetch_array($result))
 {
-	$success = true;
+	
 	$user_id = $row['id'];
 	$name = $row['name'];
 	$role= $row['role'];
+	$password = $row['password'];
+	if (!password_verify($_POST['password'], $password)) {
+		$success = false;
+	}else{
+		$success = true;
+	}
 }
 if($success == true)
 {	
@@ -25,13 +46,19 @@ if($success == true)
 }
 else
 {
-	$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Customer' AND not deleted;");
+	$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND role='Customer' AND not deleted;");
 	while($row = mysqli_fetch_array($result))
 	{
-	$success = true;
-	$user_id = $row['id'];
-	$name = $row['name'];
-	$role= $row['role'];
+		$user_id = $row['id'];
+		$name = $row['name'];
+		$role= $row['role'];
+
+		$password = $row['password'];
+		if (!password_verify($_POST['password'], $password)) {
+			$success = false;
+		}else{
+			$success = true;
+		}
 	}
 	if($success == true)
 	{
