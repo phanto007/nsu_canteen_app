@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2019 at 01:24 PM
+-- Generation Time: Mar 10, 2019 at 03:59 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -75,7 +75,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (4, 3, 'Address 3', '', '2017-03-28 19:52:01', 'Cash On Delivery', 130, 'Cancelled by Customer', 1),
 (5, 3, 'New Address 3', '', '2017-03-28 20:47:28', 'Wallet', 285, 'Paused', 0),
 (6, 3, 'New Address 3', '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', 1),
-(7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', 0);
+(7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', 0),
+(8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', 1),
+(9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +112,11 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (12, 6, 2, 5, 225),
 (13, 6, 3, 3, 60),
 (14, 6, 5, 2, 40),
-(15, 7, 2, 1, 45);
+(15, 7, 2, 1, 45),
+(16, 8, 2, 1, 45),
+(17, 8, 3, 1, 20),
+(18, 8, 5, 1, 20),
+(19, 9, 2, 1, 45);
 
 -- --------------------------------------------------------
 
@@ -194,7 +200,9 @@ INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `add
 (5, 'Customer', 'Customer 4', 'user4', 'pass4', 'mail5@example.com', '', '', '', 'Bangladesh', 9898000004, 0, 1),
 (6, 'Customer', 'Test User 10', 'user10', '12345678', 'mai10@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
 (7, 'Customer', 'Test User 12', 'user12', '$2y$12$5f2agh.qS', 'mail12@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
-(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0);
+(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
+(9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
+(10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -220,7 +228,8 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (5, 5, 0),
 (6, 6, 0),
 (7, 7, 0),
-(8, 8, 0);
+(8, 8, 0),
+(9, 10, 1915);
 
 --
 -- Indexes for dumped tables
@@ -297,13 +306,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -321,13 +330,13 @@ ALTER TABLE `ticket_details`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
