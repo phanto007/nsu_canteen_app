@@ -1,14 +1,19 @@
 <?php
+
 include 'includes/connect.php';
 $user_id = $_SESSION['user_id'];
 
 $result = mysqli_query($con, "SELECT * FROM users where id = $user_id");
+
 while($row = mysqli_fetch_array($result)){
-$name = $row['name'];	
-$address = $row['address'];
-$contact = $row['contact'];
-$email = $row['email'];
-$username = $row['username'];
+  $name = $row['name'];	
+  $username = $row['username'];
+  $email = $row['email'];
+  $address = $row['address'];
+  $city = $row['city'];
+  $post = $row['post'];
+  $country = $row['country'];
+  $contact = $row['contact'];
 }
 	if($_SESSION['customer_sid']==session_id())
 	{
@@ -142,96 +147,97 @@ $username = $row['username'];
 
         <!--start container-->
         <div class="container">
-          <p class="caption">Edit your details here which are required for delivery and contact.</p>
+          <p class="caption">Edit user details and credentials</p>
           <div class="divider"></div>
             <div class="row">
               <div class="col s12 m4 l3">
                 <h4 class="header">Details</h4>
               </div>
-<div>
+              <div>
                 <div class="card-panel">
                   <div class="row">
                     <form class="formValidate" id="formValidate" method="post" action="routers/details-router.php" novalidate="novalidate"class="col s12">
-                      <!--
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-account-circle prefix"></i>
-                          <input name="username" id="username" type="text" value="<?php echo $username;?>" data-error=".errorTxt1">
-                          <label for="username" class="">Username</label>
-						  <div class="errorTxt1"></div>
-                        </div>
-                      </div>			
-                      -->		
+
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-account-circle prefix"></i>
                           <input name="name" id="name" type="text" value="<?php echo $name;?>" data-error=".errorTxt2">
                           <label for="name" class="">Name</label>
-						   <div class="errorTxt2"></div>
+						              <div class="errorTxt2"></div>
                         </div>
                       </div>
+
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-communication-email prefix"></i>
                           <input name="email" id="email" type="email" value="<?php echo $email;?>" data-error=".errorTxt3">
                           <label for="email" class="">Email</label>
-						  <div class="errorTxt3"></div>
+						              <div class="errorTxt3"></div>
                         </div>
                       </div>
+
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-lock-outline prefix"></i>
                           <input name="password" id="password" type="password" data-error=".errorTxt4">
                           <label for="password" class="">Password</label>
-						  <div class="errorTxt4"></div>
+						              <div class="errorTxt4"></div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-account-circle prefix"></i>
-                          <input name="phone" id="phone" type="number" value="<?php echo $contact;?>" data-error=".errorTxt5">
-                          <label for="phone" class="">Contact</label>
-						  <div class="errorTxt5"></div>
-                        </div>
-                      </div>					  
+
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
                           <label for="address" class="">Address</label>
-						  <div class="errorTxt6"></div>
+						              <div class="errorTxt6"></div>
                         </div>
+                      </div>
+
+                      <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-home prefix"></i>
-                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
-                          <label for="address" class="">City</label>
-              <div class="errorTxt6"></div>
+                          <textarea name="city" id="city" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $city;?></textarea>
+                          <label for="city" class="">City</label>
+                          <div class="errorTxt6"></div>
                         </div>
+                      </div>
+
+                      <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-home prefix"></i>
-                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
-                          <label for="address" class="">Country</label>
-              <div class="errorTxt6"></div>
+                          <textarea name="country" id="country" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $country;?></textarea>
+                          <label for="country" class="">Country</label>
+                          <div class="errorTxt6"></div>
                         </div>
+                      </div>
+
+                      <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-home prefix"></i>
-                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
+                          <textarea name="post" id="post" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $post;?></textarea>
                           <label for="address" class="">Post Code</label>
-              <div class="errorTxt6"></div>
+                          <div class="errorTxt6"></div>
                         </div>
+                      </div>
+
+                      <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-communication-phone prefix"></i>
-                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
-                          <label for="address" class="">Phone</label>
-              <div class="errorTxt6"></div>
+                          <textarea name="contact" id="contact" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $contact;?></textarea>
+                          <label for="contact" class="">Phone</label>
+                          <div class="errorTxt6"></div>
                         </div>
-                        <div class="row">
-                          <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
-                              <i class="mdi-content-send right"></i>
-                            </button>
-                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                          </button>
                         </div>
+                      </div>
+
                       </div>
                     </form>
                   </div>
@@ -294,26 +300,30 @@ $username = $row['username'];
             username: {
                 required: true,
                 minlength: 5,
-				maxlength: 10
+				        maxlength: 10
             },
+
             name: {
                 required: true,
                 minlength: 5,
-				maxlength: 15
+				        maxlength: 15
             },
+
             email: {
-				required: true,
-				maxlength: 35,
-			},
-			password: {
-				required: true,
-				minlength: 5,
-				maxlength: 16,
-			},
+				        required: true,
+				        maxlength: 35,
+			      },
+
+			      password: {
+  				    required: true,
+  				    minlength: 5,
+  				    maxlength: 16,
+  			      },
+
             phone: {
-				required: true,
-				minlength: 4,
-				maxlength: 11
+				    required: true,
+				    minlength: 4,
+				    maxlength: 11
 			},
 			address: {
 				required: true,
@@ -333,25 +343,26 @@ $username = $row['username'];
                 maxlength: "Maximum 15 characters are required."
             },
             email: {
-				required: "Enter email",
+				        required: "Enter email",
                 maxlength: "Maximum 35 characters are required."				
-			},
-			password: {
-				required: "Enter password",
-				minlength: "Minimum 5 characters are required.",
+			      },
+      			password: {
+      				  required: "Enter password",
+      				  minlength: "Minimum 5 characters are required.",
                 maxlength: "Maximum 16 characters are required."				
-			},
+    			  },
             phone:{
-				required: "Specify contact number.",
-				minlength: "Minimum 4 characters are required.",
+    				    required: "Specify contact number.",
+    				    minlength: "Minimum 4 characters are required.",
                 maxlength: "Maximum 11 digits are accepted."				
-			},	
+    			  },	
             address:{
-				required: "Specify address",
-				minlength: "Minimum 10 characters are required.",
+				        required: "Specify address",
+				        minlength: "Minimum 10 characters are required.",
                 maxlength: "Maximum 300 characters are accepted."				
-			},			
+			      },			
         },
+
         errorElement : 'div',
         errorPlacement: function(error, element) {
           var placement = $(element).data('error');
