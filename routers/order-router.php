@@ -2,14 +2,18 @@
 include '../includes/connect.php';
 include '../includes/wallet.php';
 $total = 0;
-$description =  htmlspecialchars($_POST['description']);
+
+$description =  "";
+
+if(isset($_POST['description'])){
+	$description = htmlspecialchars($_POST['description']);
+}
 foreach ($_POST as $key => $value)
 {
 	if(is_numeric($key)){
 		$total = $total + getPrice($key);
 	}
 }
-$balance = getBalance($user_id);
 
 if($total > $balance){
 	header("location: ../recharge.php?bal=insufficient");
@@ -52,18 +56,6 @@ function getPrice($itemID){
         return $result['price']; 
     }else{
         die('Item not available');
-    }
-}
-
-function getBalance($customer_id){
-    global $con;
-    $sql = mysqli_query($con, "SELECT balance FROM wallet WHERE customer_id='$user_id'");
-    if(!$sql) die();
-    if (mysqli_num_rows($sql) == 1){
-        $result = mysqli_fetch_assoc($sql);
-        return $result['balance']; 
-    }else{
-        die('User not available');
     }
 }
 
