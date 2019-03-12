@@ -183,7 +183,7 @@ if($continue){
 		</div>
 	</div>';
 ?>
-<form action="routers/order-router.php" method="post">
+<form action="/routers/order-router.php" method="post">
 <?php
 foreach ($_POST as $key => $value)
 {
