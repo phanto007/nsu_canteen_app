@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2019 at 03:59 PM
+-- Generation Time: Mar 12, 2019 at 09:53 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -77,7 +77,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (6, 3, 'New Address 3', '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', 1),
 (7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', 0),
 (8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', 1),
-(9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1);
+(9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1),
+(10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Yet to be delivered', 0),
+(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Yet to be delivered', 0);
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (16, 8, 2, 1, 45),
 (17, 8, 3, 1, 20),
 (18, 8, 5, 1, 20),
-(19, 9, 2, 1, 45);
+(19, 9, 2, 1, 45),
+(20, 10, 2, 1, 45),
+(21, 11, 2, 2, 90);
 
 -- --------------------------------------------------------
 
@@ -184,6 +188,7 @@ CREATE TABLE `users` (
   `post` varchar(20) NOT NULL,
   `country` varchar(50) NOT NULL DEFAULT 'Bangladesh',
   `contact` bigint(11) NOT NULL,
+  `string` varchar(13) DEFAULT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -192,17 +197,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `verified`, `deleted`) VALUES
-(1, 'Administrator', 'Admin 1', 'root', 'toor', 'admin@admin.com', 'Address 1', '', '', 'Bangladesh', 9898000000, 1, 0),
-(2, 'Customer', 'Customer 1', 'user1', 'pass1', 'mail2@example.com', 'Address 2', '', '', 'Bangladesh', 9898000001, 1, 0),
-(3, 'Customer', 'Customer 2', 'user2', 'pass2', 'mail3@example.com', 'Address 3', '', '', 'Bangladesh', 9898000002, 1, 0),
-(4, 'Customer', 'Customer 3', 'user3', 'pass3', 'mail4@example.com', '', '', '', 'Bangladesh', 9898000003, 0, 0),
-(5, 'Customer', 'Customer 4', 'user4', 'pass4', 'mail5@example.com', '', '', '', 'Bangladesh', 9898000004, 0, 1),
-(6, 'Customer', 'Test User 10', 'user10', '12345678', 'mai10@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
-(7, 'Customer', 'Test User 12', 'user12', '$2y$12$5f2agh.qS', 'mail12@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
-(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
-(9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, 0, 0),
-(10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, 0, 0);
+INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `string`, `verified`, `deleted`) VALUES
+(1, 'Administrator', 'Admin 1', 'root', '$2y$12$fUXNoUTeFwzmKgT6jUV.4OacdqSj3aRSWVqXElldW.kH.u2KXpmaq', 'admin@admin.com', 'Address 1', '', '', 'Bangladesh', 9898000000, NULL, 1, 0),
+(2, 'Customer', 'Customer 1', 'user1', 'pass1', 'mail2@example.com', 'Address 2', '', '', 'Bangladesh', 9898000001, NULL, 1, 0),
+(3, 'Customer', 'Customer 2', 'user2', 'pass2', 'mail3@example.com', 'Address 3', '', '', 'Bangladesh', 9898000002, NULL, 1, 0),
+(4, 'Customer', 'Customer 3', 'user3', 'pass3', 'mail4@example.com', '', '', '', 'Bangladesh', 9898000003, NULL, 0, 0),
+(5, 'Customer', 'Customer 4', 'user4', 'pass4', 'mail5@example.com', '', '', '', 'Bangladesh', 9898000004, NULL, 0, 1),
+(6, 'Customer', 'Test User 10', 'user10', '12345678', 'mai10@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
+(7, 'Customer', 'Test User 12', 'user12', '$2y$12$5f2agh.qS', 'mail12@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
+(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
+(9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
+(10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, 0, 0),
+(11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
+(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,9 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (6, 6, 0),
 (7, 7, 0),
 (8, 8, 0),
-(9, 10, 1915);
+(9, 10, 1915),
+(10, 11, 9910),
+(11, 12, 0);
 
 --
 -- Indexes for dumped tables
@@ -282,7 +291,8 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `string` (`string`);
 
 --
 -- Indexes for table `wallet`
@@ -306,13 +316,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -330,13 +340,13 @@ ALTER TABLE `ticket_details`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
