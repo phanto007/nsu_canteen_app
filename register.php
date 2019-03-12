@@ -167,11 +167,11 @@ else{
         rules: {
             username: {
                 required: true,
-                minlength: 5
+                minlength: 4
             },
             name: {
                 required: true,
-                minlength: 5				
+                minlength: 4				
             },
             email: {
                 required: true,
