@@ -96,7 +96,7 @@ include 'includes/wallet.php';
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="https://semicolon.codes/" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                     <ul class="right">                        
                         <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
@@ -168,7 +168,7 @@ include 'includes/wallet.php';
 				}
 				?>
                     </tbody>
-</table>
+                </table>
               </div>
 			  <div class="input-field col s12">
               <i class="mdi-editor-mode-edit prefix"></i>
@@ -204,8 +204,8 @@ include 'includes/wallet.php';
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="https://semicolon.codes" target="_blank">Semicolon COdes</a> All rights reserved.</span>
-        </div>
+        <span>NSU Canteen Automation App by Going Out Of Business</span>
+      </div>
     </div>
   </footer>
     <!-- END FOOTER -->

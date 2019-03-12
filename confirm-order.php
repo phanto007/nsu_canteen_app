@@ -67,7 +67,7 @@ if($continue){
                     <ul class="left">                      
                       <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
-                    <ul class="right hide-on-med-and-down">                        
+                    <ul class="right">                        
                         <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
                         </li>
                     </ul>					
@@ -121,7 +121,7 @@ if($continue){
 <?php
     echo '<li class="collection-item avatar">
         <i class="mdi-content-content-paste red circle"></i>
-        <p><strong>Name:</strong>'.$name.'</p>
+        <p><strong>Name: </strong>'.$name.'</p>
 		<p><strong>Contact Number:</strong> '.$contact.'</p>
 		<p><strong>Address:</strong> '.htmlspecialchars($_POST['address']).'</p>	
 		<p><strong>Payment Type:</strong> '.$_POST['payment_type'].'</p>			
@@ -147,7 +147,7 @@ if($continue){
                 <span>'.$value.' Pieces</span>
             </div>
             <div class="col s3">
-                <span>Rs. '.$price.'</span>
+                <span>BDT. '.$price.'</span>
             </div>
         </div>
     </li>';
@@ -163,7 +163,7 @@ if($continue){
                 <span>&nbsp;</span>
             </div>
             <div class="col s3">
-                <span><strong>Rs. '.$total.'</strong></span>
+                <span><strong>BDT. '.$total.'</strong></span>
             </div>
         </div>
     </li>';
@@ -230,9 +230,8 @@ foreach ($_POST as $key => $value)
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Students</a> All rights reserved.</span>
-        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Students</a></span>
-        </div>
+        <span>NSU Canteen Automation App by Team: Going Out Of Business</span>
+      </div>
     </div>
   </footer>
     <!-- END FOOTER -->
