@@ -23,7 +23,7 @@ if($_SESSION['customer_sid']==session_id())
     $result = mysqli_query($con, "SELECT * FROM users where id = $user_id");
     $row = mysqli_fetch_array($result);
 
-    $amount = htmlspecialchars($_POST['depo_amt']);
+    $amount = htmlspecialchars($_POST['deposit']);
 
     $name = $row['name'];
     $email = $row['email'];   
@@ -76,7 +76,7 @@ if($_SESSION['customer_sid']==session_id())
      
     $walletmix->set_app_name('nsu.ddns.net');
     $walletmix->set_currency('BDT');
-    $walletmix->set_callback_url('http://nsu.ddns.net/data_callback.php');
+    $walletmix->set_callback_url('http://nsu.ddns.net/table3/data_callback.php');
     
     $extra_data = array();
      

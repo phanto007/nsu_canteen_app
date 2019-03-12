@@ -40,30 +40,40 @@ if(isset($_POST['merchant_txn_data'])){
 		$wmx_response = json_decode($walletmix->check_payment($saved_data));
 		//$walletmix->debug($wmx_response,true);
 		if(	($wmx_response->wmx_id == $saved_data->wmx_id) ){
-			$order_id = $saved_data->merchant_order_id;
+			$order_id = $wmx_response->merchant_order_id;
 			$status = $wmx_response->txn_status;
 			$received_amount = $wmx_response->merchant_amount_bdt;
+			//$respo = (string)$wmx_response;
 			if(	($wmx_response->txn_status == '1000') ){
 				if(	($wmx_response->bank_amount_bdt >= $saved_data->amount) ){
 					if(	($wmx_response->merchant_amount_bdt == $saved_data->amount) ){	
 
-						$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount', response='$wmx_response' WHERE id='$order_id';";
+						$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount' WHERE id='$order_id';";
+						$con->query($sql);
+
+						$result = mysqli_query($con, "SELECT customer_id FROM deposits where id = $order_id");
+					    $row = mysqli_fetch_array($result);
+
+					    $customer_id = $row['customer_id'];
+
+						$sql = "UPDATE wallet SET balance=balance+'$received_amount' WHERE customer_id='$customer_id';";
 						$con->query($sql);
 
 						echo 'Update merchant database with success. amount : '.$wmx_response->bank_amount_bdt;
+						header("location:./");
 					}else{
-						$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount', response='$wmx_response' WHERE id='$order_id';";
+						$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount' WHERE id='$order_id';";
 						$con->query($sql);
 
 						echo 'Merchant amount mismatch Merchant Amount : '.$saved_data->amount.' Bank Amount : '.$wmx_response->bank_amount_bdt.'. Update merchant database with success';
 					}
 				}else{
-					$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount', response='$wmx_response' WHERE id='$order_id';";
+					$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount' WHERE id='$order_id';";
 						$con->query($sql);
 					echo 'Bank amount is less then merchant amount like partial payment.You can make it failed transaction.';
 				}
 			}else{
-				$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount', response='$wmx_response' WHERE id='$order_id';";
+				$sql = "UPDATE deposits SET txn_status='$status', received_amount='$received_amount' WHERE id='$order_id';";
 				$con->query($sql);
 				echo 'Update merchant database with failed';
 			}
