@@ -142,7 +142,7 @@ include 'includes/wallet.php';
         <div class="container">
           <p class="caption">Payments securely handled by Walletmix</p>
           <div class="divider"></div>
-		  <form class="formValidate" id="formValidate" method="post" action="#" novalidate="novalidate">
+		  <form class="formValidate" id="formValidate" method="post" action="send-to-walletmix.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
                 <h4 class="header">Deposit Amount</h4>
