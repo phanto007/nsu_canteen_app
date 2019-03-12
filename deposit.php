@@ -151,8 +151,9 @@ include 'includes/wallet.php';
                 <div class="row margin">
                   <div class="input-field col s12">
                     <i class="mdi-editor-attach-money prefix"></i>
-                    <input name="depo_amp" id="deposit" type="number" min="10" max="5000" data-error=".errorTxt1">
+                    <input name="deposit" id="deposit" type="number" min="10" max="5000" data-error=".errorTxt1">
                     <label for="deposit" class="center-align">Amount</label>
+                    <p>Amount in Words: <b><span id="words"></span></b></p>
                     <div class="errorTxt1"></div>     
                   </div>
                 </div>
@@ -234,6 +235,24 @@ include 'includes/wallet.php';
           }
         }
      });
+    var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+    var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Fixty','Seventy','Eighty','Ninety'];
+
+    function inWords (num) {
+      if ((num = num.toString()).length > 9) return 'overflow';
+      n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+      if (!n) return; var str = '';
+      str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+      str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+      str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+      str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+      str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'Only ' : '';
+      return str;
+    }
+
+    document.getElementById('deposit').onkeyup = function () {
+    document.getElementById('words').innerHTML = inWords(document.getElementById('deposit').value);
+    };
     </script>
 </body>
 
