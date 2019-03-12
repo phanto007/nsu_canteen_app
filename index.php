@@ -200,15 +200,9 @@ include 'includes/wallet.php';
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>NSU Canteen Automation App by Going Out Of Business</span>
-      </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
+    <?php
+      include 'includes/footer.php';
+    ?>
 
 
 

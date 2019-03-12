@@ -179,21 +179,11 @@ include 'includes/wallet.php';
   </div>
   <!-- END MAIN -->
 
-
-
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>NSU Canteen Automation App by Going Out Of Business</span>
-      </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
-
-
+    <?php
+      include 'includes/footer.php';
+    ?>
 
     <!-- ================================================
     Scripts
@@ -235,7 +225,7 @@ include 'includes/wallet.php';
           }
         }
      });
-    
+
     var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
     var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Fixty','Seventy','Eighty','Ninety'];
 

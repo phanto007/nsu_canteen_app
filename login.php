@@ -1,5 +1,6 @@
 <?php  
-session_start(); 
+session_start();
+
 if(isset($_SESSION['admin_sid']) || isset($_SESSION['customer_sid']))
 {
 	header("location:index.php");
@@ -81,8 +82,6 @@ else{
           </div>         
         </div>
         </div>
-
-
       </form>
     </div>
   </div>

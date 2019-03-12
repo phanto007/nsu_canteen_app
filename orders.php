@@ -54,7 +54,7 @@ include 'includes/wallet.php';
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a><span class="logo-text">Logo</span></h1></li>
                     </ul>
                     <ul class="right">                        
                         <li><a href="#"  class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
@@ -125,7 +125,7 @@ include 'includes/wallet.php';
                               <span class="collection-header">Order No. '.$row['id'].'</span>
                               <p><strong>Date:</strong> '.$row['date'].'</p>
                               <p><strong>Payment Type:</strong> '.$row['payment_type'].'</p>
-							  <p><strong>Address: </strong>'.$row['address'].'</p>							  
+							                <p><strong>Address: </strong>'.$row['address'].'</p>							  
                               <p><strong>Status:</strong> '.($status=='Paused' ? 'Paused <a  data-position="bottom" data-delay="50" data-tooltip="Please contact administrator for further details." class="btn-floating waves-effect waves-light tooltipped cyan">    ?</a>' : $status).'</p>							  
 							  '.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'						                               
 							  <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
@@ -200,15 +200,9 @@ include 'includes/wallet.php';
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>NSU Canteen Automation App by Team: Going Out Of Business</span>   
-      </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
+    <?php
+      include 'includes/footer.php';
+    ?>
 
 
 
