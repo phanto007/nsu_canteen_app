@@ -76,7 +76,7 @@ if($_SESSION['customer_sid']==session_id())
      
     $walletmix->set_app_name('cryptomayday.com');
     $walletmix->set_currency('BDT');
-    $walletmix->set_callback_url('http://http://cryptomayday.com/data_callback.php');
+    $walletmix->set_callback_url('http://cryptomayday.com/data_callback.php');
     
     $extra_data = array();
      
