@@ -8,7 +8,7 @@
                 </div>
 				 <div class="col col s8 m8 l8">
                     <ul id="profile-dropdown" class="dropdown-content">
-                        <li><a href="routers/logout.php"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                        <li><a href="routers/logout.php"><i class="mdi-hardware-keyboard-tab"></i>Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -61,7 +61,8 @@
             <li class="bold"><a href="details.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i>Edit Details</a>
             </li>
             <li class="bold"><a href="deposit.php" class="waves-effect waves-cyan"><i class="mdi-editor-attach-money"></i>Deposit</a>
-            </li>			
+            </li>
+            <li><a href="routers/logout.php"><i class="mdi-action-settings-power"></i>Logout</a></li>			
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
         </aside>
