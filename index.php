@@ -142,13 +142,13 @@ include 'includes/wallet.php';
         <div class="container">
           <p class="caption">Order your food here.</p>
           <div class="divider"></div>
-		  <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
+		      <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
                 <h4 class="header">Order Food</h4>
               </div>
               <div>
-                  <table id="data-table-customer" class="responsive-table display" cellspacing="0">
+                  <table id="data-table-customer" class="table table-striped w-auto" cellspacing="0">
                     <thead>
                       <tr>
                         <th>Name</th>

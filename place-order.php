@@ -258,7 +258,7 @@ $verified = $row['verified'];
                 <span>'.$value.' Pieces</span>
             </div>
             <div class="col s3">
-                <span>Rs. '.$price.'</span>
+                <span>BDT. '.$price.'</span>
             </div>
         </div>
     </li>';
@@ -274,7 +274,7 @@ $verified = $row['verified'];
                 <span>&nbsp;</span>
             </div>
             <div class="col s3">
-                <span><strong>Rs. '.$total.'</strong></span>
+                <span><strong>BDT. '.$total.'</strong></span>
             </div>
         </div>
     </li>';
@@ -304,17 +304,9 @@ $verified = $row['verified'];
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>NSU Canteen Automation App by Team: Going Out Of Business</span>
-      </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
-
-
+    <?php
+      include 'includes/footer.php';
+    ?>
 
     <!-- ================================================
     Scripts
