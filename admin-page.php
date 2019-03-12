@@ -97,7 +97,7 @@ include 'includes/connect.php';
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="https://semicolon.codes" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                 </div>
             </nav>
@@ -147,7 +147,7 @@ include 'includes/connect.php';
                 <h4 class="header">Order Food</h4>
               </div>
               <div>
-				<table id="data-table-admin" class="responsive-table display" cellspacing="0">
+				<table id="data-table-admin" class="table table-striped w-auto" cellspacing="0">
                     <thead>
                       <tr>
                         <th>Name</th>
@@ -239,17 +239,9 @@ include 'includes/connect.php';
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="https://semicolon.codes" target="_blank">Semicolon Codes</a> All rights reserved.</span>
-        </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
-
-
+    <?php
+      include 'includes/footer.php';
+    ?>
 
     <!-- ================================================
     Scripts

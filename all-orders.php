@@ -11,7 +11,7 @@ include 'includes/connect.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>All orders</title>
+  <title>All Orders</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
@@ -52,7 +52,7 @@ include 'includes/connect.php';
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="https://semicolon.codes/" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                 </div>
             </nav>
@@ -162,7 +162,7 @@ include 'includes/connect.php';
                             <span>'.$row1['quantity'].' Pieces</span>
                             </div>
                             <div class="col s3">
-                            <span>Rs. '.$row1['price'].'</span>
+                            <span>BDT. '.$row1['price'].'</span>
                             </div>
                             </div>
                             </li>';
@@ -176,7 +176,7 @@ include 'includes/connect.php';
 											<span> </span>
                                             </div>
                                             <div class="col s3">
-                                                <span><strong>Rs. '.$row['total'].'</strong></span>
+                                                <span><strong>BDT. '.$row['total'].'</strong></span>
                                             </div>';										
 								if(!$deleted){
 								echo '<button class="btn waves-effect waves-light right submit" type="submit" name="action">Change Status
@@ -206,16 +206,9 @@ include 'includes/connect.php';
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="https://semicolon.codes/" target="_blank">Semicolon Codes</a> All rights reserved.</span>
-
-        </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
+    <?php
+      include 'includes/footer.php';
+    ?>
 
 
 

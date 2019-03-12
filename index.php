@@ -152,7 +152,7 @@ include 'includes/wallet.php';
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Item Price/Piece</th>
+                        <th>Item Price in BDT</th>
                         <th>Quantity</th>
                       </tr>
                     </thead>

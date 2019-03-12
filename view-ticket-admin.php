@@ -111,12 +111,8 @@ if($continue){
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
-                    </ul>
-                    <ul class="right hide-on-med-and-down">                        
-                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
-                        </li>
-                    </ul>					
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
+                    </ul>				
                 </div>
             </nav>
         </div>
@@ -251,18 +247,9 @@ if($continue){
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  <!-- START FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Students</a> All rights reserved.</span>
-        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Students</a></span>
-        </div>
-    </div>
-  </footer>
-    <!-- END FOOTER -->
-
-
+    <?php
+      include 'includes/footer.php';
+    ?>
 
     <!-- ================================================
     Scripts
