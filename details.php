@@ -264,9 +264,8 @@ while($row = mysqli_fetch_array($result)){
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Students</a> All rights reserved.</span>
-        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Students</a></span>
-        </div>
+        <span>NSU Canteen Automation App by Going Out Of Business</span>
+      </div>
     </div>
   </footer>
     <!-- END FOOTER -->
@@ -315,21 +314,21 @@ while($row = mysqli_fetch_array($result)){
 			      },
 
 			      password: {
-  				    required: false,
-  				    minlength: 5,
-  				    maxlength: 16,
-  			      },
+  				      required: false,
+  				      minlength: 5,
+  				      maxlength: 16,
+  			    },
 
             phone: {
-				    required: false,
-				    minlength: 4,
-				    maxlength: 11
-			},
-			address: {
-				required: false,
-				minlength: 10,
-				maxlength: 300
-			},
+				      required: false,
+				      minlength: 4,
+				      maxlength: 11
+			      },
+			      address: {
+				      required: false,
+				      minlength: 10,
+				      maxlength: 300
+			      },
         },
         messages: {
             username: {
