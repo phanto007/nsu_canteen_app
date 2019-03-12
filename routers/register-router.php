@@ -1,22 +1,6 @@
 <?php
 include '../includes/connect.php';
-
-// Sanitizing user data
-function sanitizeData($data) {
-	$data = trim($data);
-	$data = stripcslashes($data);
-	$data = htmlspecialchars($data);
-	return $data;
-}
-
-function hashData($data){
-    $options = ['cost' => 12];
-    return password_hash($data, PASSWORD_DEFAULT, $options);
-}
-
-function insertData($data) {
-	return mysqli_real_escape_string($con, $data);
-}
+include '../includes/functions.php';
 
 $name = sanitizeData($_POST['name']);
 $email = sanitizeData($_POST['email']);
@@ -26,7 +10,10 @@ $password = sanitizeData($_POST['password']);
 // Hashing password
 $password = hashData($password);
 
-$sql = "INSERT INTO users (name, username, password, email) VALUES ('$name', '$username', '$password', '$email');";
+// Generate unique string for user
+$string = generateRandomString(13);
+
+$sql = "INSERT INTO users (name, username, password, email, string) VALUES ('$name', '$username', '$password', '$email', '$string');";
 $con->query($sql);
 $user_id =  $con->insert_id;
 $sql = "INSERT INTO wallet(customer_id) VALUES ($user_id)";
