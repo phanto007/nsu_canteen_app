@@ -18,7 +18,7 @@
                 </div>
             </div>
             </li>
-            <li class="bold"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i> Order Food</a>
+            <li class="bold"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i>Order Food</a>
             </li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
@@ -58,7 +58,9 @@
                         </li>
                     </ul>
                 </li>			
-            <li class="bold active"><a href="details.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i> Edit Details</a>
+            <li class="bold"><a href="details.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i>Edit Details</a>
+            </li>
+            <li class="bold"><a href="deposit.php" class="waves-effect waves-cyan"><i class="mdi-editor-attach-money"></i>Deposit</a>
             </li>			
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>

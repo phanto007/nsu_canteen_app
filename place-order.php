@@ -248,7 +248,7 @@ $verified = $row['verified'];
 			$item_name = $row['name'];
 			$item_id = $row['id'];
 		}
-			$price = $value*$price;
+			$price = $value * $price;
 			    echo '<li class="collection-item">
         <div class="row">
             <div class="col s7">
