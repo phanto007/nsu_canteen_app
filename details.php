@@ -163,7 +163,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-account-circle prefix"></i>
                           <input name="name" id="name" type="text" value="<?php echo $name;?>" data-error=".errorTxt2">
                           <label for="name" class="">Name</label>
-						              <div class="errorTxt2"></div>
+						              <div class="errorTxt1"></div>
                         </div>
                       </div>
 
@@ -172,7 +172,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-communication-email prefix"></i>
                           <input name="email" id="email" type="email" value="<?php echo $email;?>" data-error=".errorTxt3">
                           <label for="email" class="">Email</label>
-						              <div class="errorTxt3"></div>
+						              <div class="errorTxt2"></div>
                         </div>
                       </div>
 
@@ -181,7 +181,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-lock-outline prefix"></i>
                           <input name="password" id="password" type="password" data-error=".errorTxt4" required>
                           <label for="password" class="">Password</label>
-						              <div class="errorTxt4"></div>
+						              <div class="errorTxt3"></div>
                         </div>
                       </div>
 
@@ -190,7 +190,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
                           <label for="address" class="">Address</label>
-						              <div class="errorTxt6"></div>
+						              <div class="errorTxt4"></div>
                         </div>
                       </div>
 
@@ -199,7 +199,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="city" id="city" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $city;?></textarea>
                           <label for="city" class="">City</label>
-                          <div class="errorTxt6"></div>
+                          <div class="errorTxt5"></div>
                         </div>
                       </div>
 
@@ -216,8 +216,8 @@ while($row = mysqli_fetch_array($result)){
                         <div class="input-field col s12">
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="post" id="post" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $post;?></textarea>
-                          <label for="address" class="">Post Code</label>
-                          <div class="errorTxt6"></div>
+                          <label for="post" class="">Post Code</label>
+                          <div class="errorTxt7"></div>
                         </div>
                       </div>
 
@@ -226,7 +226,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-communication-phone prefix"></i>
                           <textarea name="phone" id="contact" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $contact;?></textarea>
                           <label for="contact" class="">Phone</label>
-                          <div class="errorTxt6"></div>
+                          <div class="errorTxt8"></div>
                         </div>
                       </div>
 
@@ -323,6 +323,9 @@ while($row = mysqli_fetch_array($result)){
 				      minlength: 10,
 				      maxlength: 300
 			      },
+            post: {
+              required: false,
+            },
         },
         messages: {
             username: {
