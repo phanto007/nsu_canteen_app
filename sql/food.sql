@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2019 at 09:53 AM
+-- Generation Time: Mar 12, 2019 at 02:02 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -40,11 +40,11 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `price`, `deleted`) VALUES
-(1, 'Item 1', 25, 1),
-(2, 'Item 2', 45, 0),
-(3, 'Item 3', 20, 0),
-(4, 'Item 4', 15, 1),
-(5, 'Item 5', 20, 0);
+(1, 'Chicken Tikka Masala', 25, 0),
+(2, 'Chicken BBQ', 45, 0),
+(3, 'Cold Coffee', 20, 0),
+(4, 'Red Tea', 15, 0),
+(5, 'Shingara', 20, 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,10 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', 1),
 (9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1),
 (10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Yet to be delivered', 0),
-(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Yet to be delivered', 0);
+(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Yet to be delivered', 0),
+(12, 12, '', '', '2019-03-12 15:30:05', 'Wallet', 45, 'Cancelled by Customer', 1),
+(13, 12, '', '', '2019-03-12 15:30:25', 'Wallet', 45, 'Cancelled by Customer', 1),
+(14, 12, '', '', '2019-03-12 18:09:48', 'Wallet', 45, 'Cancelled by Customer', 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +123,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (18, 8, 5, 1, 20),
 (19, 9, 2, 1, 45),
 (20, 10, 2, 1, 45),
-(21, 11, 2, 2, 90);
+(21, 11, 2, 2, 90),
+(22, 12, 2, 9, 405),
+(23, 13, 2, 9, 405),
+(24, 14, 2, 1, 45);
 
 -- --------------------------------------------------------
 
@@ -238,7 +244,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (8, 8, 0),
 (9, 10, 1915),
 (10, 11, 9910),
-(11, 12, 0);
+(11, 12, 1090);
 
 --
 -- Indexes for dumped tables
@@ -316,13 +322,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tickets`
