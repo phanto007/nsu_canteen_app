@@ -10,10 +10,14 @@
                       <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     -->
                     </ul>
-                    <ul class="right">                        
+                    <<ul class="right">   
+                      <li><a href="#" class="waves-effect waves-block waves-light"><b style="font-size: 24px">৳<?php echo $balance;?></b></a>
+                        </li>
+                        <!--                     
                         <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
                         </li>
-                    </ul>                   
+                      -->
+                    </ul>               
                 </div>
             </nav>
         </div>
