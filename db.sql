@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2019 at 06:24 AM
+-- Generation Time: Mar 12, 2019 at 03:30 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -54,10 +54,7 @@ INSERT INTO `deposits` (`id`, `customer_id`, `amount`, `received_amount`, `respo
 (9, 12, 10, 10, 'asdasd', '1000', '2019-03-12 14:14:39'),
 (10, 12, 22, 22, '', '1000', '2019-03-12 14:20:44'),
 (11, 12, 20, 0, '', '', '2019-03-12 14:23:07'),
-(12, 12, 10, 10, '', '1000', '2019-03-12 14:28:18'),
-(13, 12, 1566, 0, '', '', '2019-03-12 15:17:45'),
-(14, 12, 1566, 1566, '', '1000', '2019-03-12 15:17:48'),
-(15, 12, 20, 0, '', '', '2019-03-12 17:28:42');
+(12, 12, 10, 10, '', '1000', '2019-03-12 14:28:18');
 
 -- --------------------------------------------------------
 
@@ -92,6 +89,7 @@ INSERT INTO `items` (`id`, `name`, `price`, `deleted`) VALUES
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
+  `address` varchar(300) NOT NULL,
   `description` varchar(300) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `payment_type` varchar(16) NOT NULL DEFAULT 'Wallet',
@@ -104,21 +102,18 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `description`, `date`, `payment_type`, `total`, `status`, `deleted`) VALUES
-(1, 2, 'Sample Description 1', '2017-03-28 17:32:41', 'Wallet', 150, 'Cancelled by Customer', 1),
-(2, 2, '', '2017-03-28 17:43:05', 'Wallet', 130, 'Cancelled by Customer', 1),
-(3, 3, 'Sample Description 2', '2017-03-28 19:49:33', 'Cash On Delivery', 130, 'Yet to be delivered', 0),
-(4, 3, '', '2017-03-28 19:52:01', 'Cash On Delivery', 130, 'Cancelled by Customer', 1),
-(5, 3, '', '2017-03-28 20:47:28', 'Wallet', 285, 'Paused', 0),
-(6, 3, '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', 1),
-(7, 2, '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', 0),
-(8, 10, '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', 1),
-(9, 10, '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1),
-(10, 11, '', '2019-03-12 13:59:39', 'Wallet', 45, 'Yet to be delivered', 0),
-(11, 11, '', '2019-03-12 14:06:32', 'Wallet', 45, 'Yet to be delivered', 0),
-(12, 12, '', '2019-03-12 21:19:11', 'Wallet', 45, 'Cancelled by Customer', 1),
-(13, 12, '', '2019-03-12 23:30:19', 'Wallet', 45, 'Cancelled by Customer', 1),
-(14, 12, '', '2019-03-13 11:11:41', 'Wallet', 45, 'Yet to be delivered', 0);
+INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `payment_type`, `total`, `status`, `deleted`) VALUES
+(1, 2, 'Address 2', 'Sample Description 1', '2017-03-28 17:32:41', 'Wallet', 150, 'Cancelled by Customer', 1),
+(2, 2, 'New address 2', '', '2017-03-28 17:43:05', 'Wallet', 130, 'Cancelled by Customer', 1),
+(3, 3, 'Address 3', 'Sample Description 2', '2017-03-28 19:49:33', 'Cash On Delivery', 130, 'Yet to be delivered', 0),
+(4, 3, 'Address 3', '', '2017-03-28 19:52:01', 'Cash On Delivery', 130, 'Cancelled by Customer', 1),
+(5, 3, 'New Address 3', '', '2017-03-28 20:47:28', 'Wallet', 285, 'Paused', 0),
+(6, 3, 'New Address 3', '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', 1),
+(7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', 0),
+(8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', 1),
+(9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', 1),
+(10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Yet to be delivered', 0),
+(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Yet to be delivered', 0);
 
 -- --------------------------------------------------------
 
@@ -159,10 +154,7 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (18, 8, 5, 1, 20),
 (19, 9, 2, 1, 45),
 (20, 10, 2, 1, 45),
-(21, 11, 2, 2, 90),
-(22, 12, 2, 2, 90),
-(23, 13, 2, 1, 45),
-(24, 14, 2, 1, 45);
+(21, 11, 2, 2, 90);
 
 -- --------------------------------------------------------
 
@@ -251,7 +243,7 @@ INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `add
 (9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
 (10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, 0, 0),
 (11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
-(12, 'Administrator', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', 0, 0);
+(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -280,7 +272,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (8, 8, 0),
 (9, 10, 1915),
 (10, 11, 9910),
-(11, 12, 1531);
+(11, 12, 10);
 
 --
 -- Indexes for dumped tables
@@ -359,7 +351,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT for table `deposits`
 --
 ALTER TABLE `deposits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -371,13 +363,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tickets`
