@@ -166,31 +166,7 @@ $verified = $row['verified'];
 									<option value="Cash On Delivery" <?php if(!$verified) echo 'disabled';?>>Cash on Delivery</option>							
 							</select>
                         </div>
-                      </div>					
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-home prefix"></i>
-							<textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt1"><?php echo $address;?></textarea>
-							<label for="address" class="">Address</label>
-							<div class="errorTxt1"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-credit-card prefix"></i>
-							<input name="cc_number" id="cc_number" type="text" data-error=".errorTxt2" required>
-							<label for="cc_number" class="">Card Number</label>
-							<div class="errorTxt2"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-communication-vpn-key prefix"></i>	
-							<input name="cvv_number" id="cvv_number" type="text" data-error=".errorTxt3" required>
-							<label for="cvv_number" class="">CVV Number</label>								
-							<div class="errorTxt3"></div>
-                        </div>
-                      </div>					  
+                      </div>							  
                       <div class="row">
                         <div class="row">
                           <div class="input-field col s12">
