@@ -27,7 +27,7 @@ if(!$con->query($sql)){
 }
 
 
-$sql = "INSERT INTO orders (customer_id, address, total, description) VALUES ($user_id, '$address', $total, '$description')";
+$sql = "INSERT INTO orders (customer_id, total, description) VALUES ($user_id, $total, '$description')";
 if ($con->query($sql) === TRUE){
 	$order_id =  $con->insert_id;
 	foreach ($_POST as $key => $value)
