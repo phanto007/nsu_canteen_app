@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2019 at 12:01 PM
+-- Generation Time: Mar 17, 2019 at 03:35 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -114,7 +114,8 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', '', 1),
 (9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', '', 1),
 (10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 1),
-(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 0);
+(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 0),
+(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 0);
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (18, 8, 5, 1, 20),
 (19, 9, 2, 1, 45),
 (20, 10, 2, 1, 45),
-(21, 11, 2, 2, 90);
+(21, 11, 2, 2, 90),
+(22, 12, 2, 1, 45);
 
 -- --------------------------------------------------------
 
@@ -272,7 +274,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 9955),
+(10, 11, 9910),
 (11, 12, 10);
 
 --
@@ -364,13 +366,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tickets`
