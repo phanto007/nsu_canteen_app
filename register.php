@@ -171,25 +171,25 @@ else{
             },
             name: {
                 required: true,
-                minlength: 4				
+                minlength: 1				
             },
             email: {
                 required: true,
                 email: true
             },
       			password: {
-      				required: true,
-      				minlength: 8
+      				  required: true,
+      				  minlength: 8
 			      },
         },
         messages: {
             username: {
                 required: "Enter username",
-                minlength: "Minimum 5 characters are required."
+                minlength: "Minimum 4 characters are required."
             },
             name: {
                 required: "Enter name",
-                minlength: "Minimum 5 characters are required."
+                minlength: "Minimum 1 characters are required."
             },
             email: {
                 required: "Enter email"

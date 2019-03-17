@@ -151,7 +151,7 @@ while($row = mysqli_fetch_array($result)){
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-action-account-circle prefix"></i>
-                          <input name="name" id="name" type="text" value="<?php echo $name;?>" data-error=".errorTxt2">
+                          <input name="name" id="name" type="text" value="<?php echo $name;?>" data-error=".errorTxt1">
                           <label for="name" class="">Name</label>
 						              <div class="errorTxt1"></div>
                         </div>
@@ -160,18 +160,9 @@ while($row = mysqli_fetch_array($result)){
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-communication-email prefix"></i>
-                          <input name="email" id="email" type="email" value="<?php echo $email;?>" data-error=".errorTxt3">
+                          <input name="email" id="email" type="email" value="<?php echo $email;?>" data-error=".errorTxt2">
                           <label for="email" class="">Email</label>
 						              <div class="errorTxt2"></div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-lock-outline prefix"></i>
-                          <input name="password" id="password" type="password" data-error=".errorTxt4" required>
-                          <label for="password" class="">Password</label>
-						              <div class="errorTxt3"></div>
                         </div>
                       </div>
 
@@ -180,7 +171,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
                           <label for="address" class="">Address</label>
-						              <div class="errorTxt4"></div>
+						              <div class="errorTxt3"></div>
                         </div>
                       </div>
 
@@ -189,7 +180,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="city" id="city" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $city;?></textarea>
                           <label for="city" class="">City</label>
-                          <div class="errorTxt5"></div>
+                          <div class="errorTxt4"></div>
                         </div>
                       </div>
 
@@ -198,7 +189,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="country" id="country" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $country;?></textarea>
                           <label for="country" class="">Country</label>
-                          <div class="errorTxt6"></div>
+                          <div class="errorTxt5"></div>
                         </div>
                       </div>
 
@@ -207,7 +198,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-action-home prefix"></i>
                           <textarea name="post" id="post" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $post;?></textarea>
                           <label for="post" class="">Post Code</label>
-                          <div class="errorTxt7"></div>
+                          <div class="errorTxt6"></div>
                         </div>
                       </div>
 
@@ -216,7 +207,7 @@ while($row = mysqli_fetch_array($result)){
                           <i class="mdi-communication-phone prefix"></i>
                           <textarea name="phone" id="contact" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $contact;?></textarea>
                           <label for="contact" class="">Phone</label>
-                          <div class="errorTxt8"></div>
+                          <div class="errorTxt7"></div>
                         </div>
                       </div>
 
@@ -282,71 +273,60 @@ while($row = mysqli_fetch_array($result)){
         rules: {
             username: {
                 required: false,
-                minlength: 5,
-				        maxlength: 10
+                minlength: 4,
+                maxlength: 255
             },
 
             name: {
                 required: false,
-                minlength: 5,
-				        maxlength: 15
+                minlength: 1,
             },
 
             email: {
 				        required: false,
-				        maxlength: 35,
 			      },
-
-			      password: {
-  				      required: false,
-  				      minlength: 5,
-  				      maxlength: 16,
-  			    },
 
             phone: {
-				      required: false,
-				      minlength: 4,
-				      maxlength: 11
+				        required: false,
+				        maxlength: 11
 			      },
+
 			      address: {
-				      required: false,
-				      minlength: 10,
-				      maxlength: 300
+				        required: false,
+				        minlength: 4,
 			      },
+
             post: {
-              required: false,
+              required: false
             },
         },
         messages: {
             username: {
                 required: "Enter username",
-                minlength: "Minimum 5 characters are required.",
-                maxlength: "Maximum 10 characters are required."				
+                minlength: "Minimum 4 characters are required.",
+                maxlength: "Maximum 255 characters are required."				
             },
             name: {
                 required: "Enter name",
-                minlength: "Minimum 5 characters are required.",
-                maxlength: "Maximum 15 characters are required."
+                minlength: "Minimum 1 characters are required."
             },
+
             email: {
-				        required: "Enter email",
-                maxlength: "Maximum 35 characters are required."				
+				        required: "Enter email"
 			      },
-      			password: {
-      				  required: "Enter password",
-      				  minlength: "Minimum 5 characters are required.",
-                maxlength: "Maximum 16 characters are required."				
-    			  },
+
             phone:{
     				    required: "Specify contact number.",
-    				    minlength: "Minimum 4 characters are required.",
                 maxlength: "Maximum 11 digits are accepted."				
-    			  },	
+    			  },
+
             address:{
 				        required: "Specify address",
-				        minlength: "Minimum 10 characters are required.",
-                maxlength: "Maximum 300 characters are accepted."				
-			      },			
+				        minlength: "Minimum 4 characters are required."
+			      },
+            post: {
+                required: "Specify post number"
+            }		
         },
 
         errorElement : 'div',
