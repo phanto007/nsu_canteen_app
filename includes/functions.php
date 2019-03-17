@@ -17,9 +17,13 @@ function insertData($data) {
 	return mysqli_real_escape_string($con, $data);
 }
 
-function my_simple_crypt($string, $action) {
+function my_simple_crypt($string, $action, $secret_key="") {
     // you may change these values to your own
-    $secret_key = 'fay37udmdfiw1';
+
+    
+    if($secret_key=""){
+        $secret_key = 'fay37udmdfiw1';
+    }
     $secret_iv = 'fay37udmdfiw1_iv';
 
     $output = false;

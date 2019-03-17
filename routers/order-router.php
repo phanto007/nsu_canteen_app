@@ -1,6 +1,7 @@
 <?php
 include '../includes/connect.php';
 include '../includes/wallet.php';
+include '../includes/functions.php';
 $total = 0;
 
 $description =  "";
@@ -27,7 +28,9 @@ if(!$con->query($sql)){
 }
 
 
-$sql = "INSERT INTO orders (customer_id, total, description) VALUES ($user_id, $total, '$description')";
+$str = generateRandomString(13);
+
+$sql = "INSERT INTO orders (customer_id, total, description, verification_string) VALUES ($user_id, $total, '$description', '$str')";
 if ($con->query($sql) === TRUE){
 	$order_id =  $con->insert_id;
 	foreach ($_POST as $key => $value)
