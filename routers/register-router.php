@@ -13,7 +13,7 @@ $password = hashData($password);
 // Generate unique string for user
 $string = generateRandomString(13);
 
-$sql = "INSERT INTO users (name, username, password, email, string) VALUES ('$name', '$username', '$password', '$email', '$string');";
+$sql = "INSERT INTO users (name, username, password, email, pkey) VALUES ('$name', '$username', '$password', '$email', '$string');";
 $con->query($sql);
 $user_id =  $con->insert_id;
 $sql = "INSERT INTO wallet(customer_id) VALUES ($user_id)";
