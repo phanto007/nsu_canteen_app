@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2019 at 03:30 PM
+-- Generation Time: Mar 17, 2019 at 07:12 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -222,7 +222,7 @@ CREATE TABLE `users` (
   `post` varchar(20) NOT NULL,
   `country` varchar(50) NOT NULL DEFAULT 'Bangladesh',
   `contact` bigint(11) NOT NULL,
-  `string` varchar(13) DEFAULT NULL,
+  `pkey` varchar(13) DEFAULT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -231,7 +231,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `string`, `verified`, `deleted`) VALUES
+INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `pkey`, `verified`, `deleted`) VALUES
 (1, 'Administrator', 'Admin 1', 'root', '$2y$12$fUXNoUTeFwzmKgT6jUV.4OacdqSj3aRSWVqXElldW.kH.u2KXpmaq', 'admin@admin.com', 'Address 1', '', '', 'Bangladesh', 9898000000, NULL, 1, 0),
 (2, 'Customer', 'Customer 1', 'user1', 'pass1', 'mail2@example.com', 'Address 2', '', '', 'Bangladesh', 9898000001, NULL, 1, 0),
 (3, 'Customer', 'Customer 2', 'user2', 'pass2', 'mail3@example.com', 'Address 3', '', '', 'Bangladesh', 9898000002, NULL, 1, 0),
@@ -333,7 +333,7 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `string` (`string`);
+  ADD UNIQUE KEY `string` (`pkey`);
 
 --
 -- Indexes for table `wallet`
