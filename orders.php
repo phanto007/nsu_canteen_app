@@ -150,18 +150,29 @@ include 'includes/wallet.php';
                                             <div class="col s3">
                                                 <span><strong>BDT. '.$row['total'].'</strong></span>
                                             </div>';
-								if(!preg_match('/^Cancelled/', $status)){
-									if($status != 'Delivered'){
-								echo '<form action="routers/cancel-order.php" method="post">
-										<input type="hidden" value="'.$id.'" name="id">
-										<input type="hidden" value="Cancelled by Customer" name="status">	
-										<input type="hidden" value="'.$row['payment_type'].'" name="payment_type">											
-										<button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel Order
-                                              <i class="mdi-content-clear right"></i> 
-										</button>
-										</form>';
-								}
-								}
+								if(preg_match('/^Yet to be delivered/', $status)){
+
+  								echo '<form action="routers/cancel-order.php" method="post">
+  										<input type="hidden" value="'.$id.'" name="id">
+  										<input type="hidden" value="Cancelled by Customer" name="status">	
+  										<input type="hidden" value="'.$row['payment_type'].'" name="payment_type">											
+  										<button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel Order
+                                                <i class="mdi-content-clear right"></i> 
+  										</button>
+  										</form>';
+
+								}elseif(preg_match('/^Ready for pickup/', $status)){
+
+                  echo '<form action="routers/cancel-order.php" method="post">
+                      <input type="hidden" value="'.$id.'" name="id">
+                      <input type="hidden" value="Cancelled by Customer" name="status"> 
+                      <input type="hidden" value="'.$row['payment_type'].'" name="payment_type">                      
+                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">Verify Pickup
+                                                <i class="mdi-content-clear right"></i> 
+                      </button>
+                      </form>';
+
+                }
 								echo'</div></li>';
 
 					}

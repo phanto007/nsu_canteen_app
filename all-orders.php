@@ -117,7 +117,8 @@ include 'includes/connect.php';
 								<option value="Yet to be delivered" '.($status=='Yet to be delivered' ? 'selected' : '').'>Yet to be delivered</option>
 								<option value="Delivered" '.($status=='Delivered' ? 'selected' : '').'>Delivered</option>
 								<option value="Cancelled by Admin" '.($status=='Cancelled by Admin' ? 'selected' : '').'>Cancelled by Admin</option>
-								<option value="Paused" '.($status=='Paused' ? 'selected' : '').'>Paused</option>								
+								<option value="Paused" '.($status=='Paused' ? 'selected' : '').'>Paused</option>			
+                <option value="Ready for pickup" '.($status=='Ready for pickup' ? 'selected' : '').'>Ready for pickup</option>					
 								</select>
 							  ').'</p>
                               <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
@@ -168,9 +169,13 @@ include 'includes/connect.php';
                                                 <span><strong>BDT. '.$row['total'].'</strong></span>
                                             </div>';										
 								if(!$deleted){
-								echo '<button class="btn waves-effect waves-light right submit" type="submit" name="action">Change Status
+								echo '<br><br><button class="btn waves-effect waves-light right submit" type="submit" name="action">Change Status
                                               <i class="mdi-content-clear right"></i> 
 										</button>
+
+                    <a class="btn waves-effect waves-light left submit" href="generate_qr.php?o_id='.$order_id.'" target="_blank">Show QR
+                                              <i class="mdi-content-clear right"></i> 
+                    </a>
 										</form>';
 								}
 								echo'</div></li>';
