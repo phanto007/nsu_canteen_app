@@ -12,10 +12,10 @@
                     </ul>
                     <<ul class="right">   
                       <li><a href="#" class="waves-effect waves-block waves-light"><b style="font-size: 24px">৳<?php echo $balance;?></b></a>
-                        </li>
-                        <!--                     
-                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
-                        </li>
+                      </li>
+                      <!--                     
+                      <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
+                      </li>
                       -->
                     </ul>               
                 </div>
