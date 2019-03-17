@@ -163,11 +163,11 @@ include 'includes/wallet.php';
 
 								}elseif(preg_match('/^Ready for pickup/', $status)){
 
-                  echo '<form action="routers/cancel-order.php" method="post">
+                  echo '<form action="qr-scanner.php" method="post">
                       <input type="hidden" value="'.$id.'" name="id">
                       <input type="hidden" value="Cancelled by Customer" name="status"> 
                       <input type="hidden" value="'.$row['payment_type'].'" name="payment_type">                      
-                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">Verify Pickup
+                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">QR Verify
                                                 <i class="mdi-content-clear right"></i> 
                       </button>
                       </form>';
