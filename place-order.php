@@ -156,7 +156,7 @@ $verified = $row['verified'];
                       <div class="row">
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Pay
                               <i class="mdi-content-send right"></i>
                             </button>
                           </div>
