@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2019 at 08:23 AM
+-- Generation Time: Mar 18, 2019 at 10:28 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -118,7 +118,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 0),
 (12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 0),
 (13, 11, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 0),
-(14, 11, '', '', '2019-03-18 12:06:21', 'Wallet', 0, 'Yet to be delivered', 'RkgMCisir7', 0);
+(15, 11, '', '', '2019-03-18 13:36:32', 'Wallet', 25, 'Yet to be delivered', 'LLcgfyc8NG', 0),
+(16, 11, '', '', '2019-03-18 14:04:25', 'Wallet', 20, 'Verified', '2AAIsOeFA1', 0),
+(17, 11, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Yet to be delivered', 'KSBs1r1zUq', 0);
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (20, 10, 2, 1, 45),
 (21, 11, 2, 2, 90),
 (22, 12, 2, 1, 45),
-(23, 13, 2, 7, 315);
+(23, 13, 2, 7, 315),
+(24, 15, 1, 1, 25),
+(25, 16, 3, 2, 40),
+(26, 17, 1, 5, 125);
 
 -- --------------------------------------------------------
 
@@ -278,7 +283,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 9865),
+(10, 11, 8980),
 (11, 12, 10);
 
 --
@@ -370,13 +375,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tickets`
