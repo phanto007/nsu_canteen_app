@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2019 at 02:44 PM
+-- Generation Time: Mar 18, 2019 at 03:00 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -54,7 +54,8 @@ INSERT INTO `deposits` (`id`, `customer_id`, `amount`, `received_amount`, `respo
 (9, 12, 10, 10, 'asdasd', '1000', '2019-03-12 14:14:39'),
 (10, 12, 22, 22, '', '1000', '2019-03-12 14:20:44'),
 (11, 12, 20, 0, '', '', '2019-03-12 14:23:07'),
-(12, 12, 10, 10, '', '1000', '2019-03-12 14:28:18');
+(12, 12, 10, 10, '', '1000', '2019-03-12 14:28:18'),
+(13, 11, 4000, 0, '', '', '2019-03-18 13:50:20');
 
 -- --------------------------------------------------------
 
@@ -80,8 +81,8 @@ INSERT INTO `items` (`id`, `name`, `price`, `image`, `deleted`) VALUES
 (3, 'Coffee', 20, 'images/food-items/coffee.jpeg', 0),
 (4, 'Samucha', 15, 'images/food-items/samucha.jpeg', 0),
 (5, 'Pudding', 20, 'images/food-items/pudding.jpeg', 0),
-(6, 'Halua', 10, '', 0),
-(7, 'Lemon Juice', 10, 'images/food-items/', 0),
+(6, 'Halua', 10, 'images/food-items/halua.jpeg', 0),
+(7, 'Lemon Juice', 10, 'images/food-items/lemon-juice.jpg', 0),
 (8, 'Noodles', 35, 'images/food-items/noodles.jpg', 0),
 (9, 'Fruit Salad', 50, 'images/food-items/salad.jpeg', 0);
 
@@ -131,7 +132,8 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (20, 11, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Ready for pickup', 'a7nl4g8MbT', 1, 0),
 (21, 11, '', '', '2019-03-18 16:42:20', 'Wallet', 25, 'Ready for pickup', 'FUHRtagh35', 1, 0),
 (22, 11, '', '', '2019-03-18 17:53:41', 'Wallet', 125, 'Ready for pickup', 'i6PtvOpdpB', 1, 0),
-(23, 11, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 0);
+(23, 11, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 0),
+(24, 11, '', '', '2019-03-18 19:47:11', 'Wallet', 100, 'Verified', 'R1RonOWRJ4', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (30, 21, 1, 1, 25),
 (31, 22, 1, 5, 125),
 (32, 23, 3, 1, 20),
-(33, 23, 8, 1, 35);
+(33, 23, 8, 1, 35),
+(34, 24, 9, 2, 100);
 
 -- --------------------------------------------------------
 
@@ -301,7 +304,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 8675),
+(10, 11, 8575),
 (11, 12, 10);
 
 --
@@ -381,7 +384,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT for table `deposits`
 --
 ALTER TABLE `deposits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -393,13 +396,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tickets`
