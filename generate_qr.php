@@ -15,24 +15,26 @@ if($_SESSION['admin_sid']==session_id() && isset($_GET['o_id']))
 
 	$sql = mysqli_query($con, "SELECT pkey FROM users WHERE id = $user_id");
 	$pkey = "";
+
 	while($row = mysqli_fetch_array($sql))
 	{
 		$pkey = $row['pkey'];
 	}
 
 	$qr_string = my_simple_crypt($verification_string,'e',$pkey);
-	echo $qr_string."<br>";
 
-	die("<img alt='$qr_string' height='250' width='250' src='https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=$qr_string'>");
+	$string = '<h3>Order No. '.$o_id.'</h3>'.
+			  '<br>'.
+			  '<h4>QR String: '.$qr_string.'</h4>'.
+			  '<br>';
 
+	die($string."<img alt='$qr_string' height='500' width='500' src='https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=$qr_string'>");
+	
 
 	
 }else{
 
 	header("location:login.php");
-
 }
-
-
 
 ?>
