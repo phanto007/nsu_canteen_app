@@ -166,7 +166,7 @@ $verified = $row['verified'];
 					  	foreach ($_POST as $key => $value)
 						{
 							if($key == 'action' || $value == ''){
-								break;
+								continue;
 							}
 							echo '<input name="'.$key.'" type="hidden" value="'.$value.'">';
 						}
@@ -200,7 +200,7 @@ $verified = $row['verified'];
 	foreach ($_POST as $key => $value)
 	{
 		if($value == ''){
-			break;
+			continue;
 		}
 		if(is_numeric($key)){
 		$result = mysqli_query($con, "SELECT * FROM items WHERE id = $key");

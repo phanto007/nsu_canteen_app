@@ -119,7 +119,7 @@ include 'includes/wallet.php';
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Order</h5>
+                <h5 class="breadcrumbs-title">Scan QR</h5>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ include 'includes/wallet.php';
 
     <!--start container-->
         <div class="container">
-          <p class="caption">Payments securely handled by Walletmix</p>
+          <p class="caption">Scan QR Code for confirming payment</p>
           <div class="divider"></div>
       
             <div class="divider"></div>
