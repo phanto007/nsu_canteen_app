@@ -92,13 +92,21 @@ include 'includes/wallet.php';
 <div id="work-collections" class="seaction">
              
 					<?php
-					if(isset($_GET['status'])){
-						$status = $_GET['status'];
+
+          $qq = "Cancelled by Customer";
+          $yy = "Cancelled by Admin";
+          $zz = "Delivered";
+
+					if(isset($_GET['status']) && $_GET['status']=="active"){
+            
+						$sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND status NOT LIKE '$qq' AND status NOT LIKE '$yy' AND status NOT LIKE '$zz' ORDER BY id DESC;");
 					}
-					else{
-						$status = '%';
-					}
-					$sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND status LIKE '$status';;");
+					elseif(isset($_GET['status']) && $_GET['status']=="history"){
+						$sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND (status LIKE '$qq' OR status LIKE '$yy' OR status LIKE '$zz') ORDER BY id DESC;");
+					}else{
+
+              $sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND status NOT LIKE '$qq' AND status NOT LIKE '$yy' AND status NOT LIKE '$zz' ORDER BY id DESC;");
+					
 					echo '              <div class="row">
                 <div>
                     <h4 class="header">List</h4>

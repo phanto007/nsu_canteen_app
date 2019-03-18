@@ -96,7 +96,7 @@ include 'includes/connect.php';
 					else{
 						$status = '%';
 					}
-					$sql = mysqli_query($con, "SELECT * FROM orders WHERE status LIKE '$status';");
+					$sql = mysqli_query($con, "SELECT * FROM orders WHERE status LIKE '$status' ORDER BY id DESC;");
 					echo '<div class="row">
                 <div>
                     <h4 class="header">List</h4>
