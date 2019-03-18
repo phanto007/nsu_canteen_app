@@ -157,10 +157,10 @@ if($continue){
 		<div class="row">
 			<div class="collection">
 				<a href="#" class="collection-item">
-					<div class="row"><div class="col s7">Current Balance</div><div class="col s3">'.$balance.'</div></div>
+					<div class="row"><div class="col s7">Current Balance</div><div class="col s3">'.'BDT '.$balance.'</div></div>
 				</a>
 				<a href="#" class="collection-item active">
-					<div class="row"><div class="col s7">Balance after purchase</div><div class="col s3">'.($balance-$total).'</div></div>
+					<div class="row"><div class="col s7">Balance after purchase</div><div class="col s3">'.'BDT '.($balance-$total).'</div></div>
 				</a>
 			</div>
 		</div>
