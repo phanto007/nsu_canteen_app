@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2019 at 03:35 PM
+-- Generation Time: Mar 18, 2019 at 08:23 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -66,6 +66,7 @@ CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `price` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -73,12 +74,12 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `price`, `deleted`) VALUES
-(1, 'Item 1', 25, 1),
-(2, 'Item 2', 45, 0),
-(3, 'Item 3', 20, 0),
-(4, 'Item 4', 15, 1),
-(5, 'Item 5', 20, 0);
+INSERT INTO `items` (`id`, `name`, `price`, `image`, `deleted`) VALUES
+(1, 'Shingara', 25, 'images/food-items/shingara.jpg', 0),
+(2, 'Chicken BBQ', 45, 'images/food-items/chicken-bbq.jpeg', 0),
+(3, 'Coffee', 20, 'images/food-items/coffee.jpeg', 0),
+(4, 'Samucha', 15, 'images/food-items/samucha.jpeg', 0),
+(5, 'Pudding', 20, 'images/food-items/pudding.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', '', 1),
 (10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 1),
 (11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 0),
-(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 0);
+(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 0),
+(13, 11, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 0),
+(14, 11, '', '', '2019-03-18 12:06:21', 'Wallet', 0, 'Yet to be delivered', 'RkgMCisir7', 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (19, 9, 2, 1, 45),
 (20, 10, 2, 1, 45),
 (21, 11, 2, 2, 90),
-(22, 12, 2, 1, 45);
+(22, 12, 2, 1, 45),
+(23, 13, 2, 7, 315);
 
 -- --------------------------------------------------------
 
@@ -274,7 +278,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 9910),
+(10, 11, 9865),
 (11, 12, 10);
 
 --
@@ -366,13 +370,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tickets`
