@@ -30,7 +30,7 @@ if(!$con->query($sql)){
 
 $str = generateRandomString(13);
 
-$sql = "INSERT INTO orders (customer_id, total, description, verification_string) VALUES ($user_id, $total, '$description', '$str')";
+$sql = "INSERT INTO orders (customer_id, total, description, verification_string, status_delivered) VALUES ($user_id, $total, '$description', '$str', '0')";
 if ($con->query($sql) === TRUE){
 	$order_id =  $con->insert_id;
 	foreach ($_POST as $key => $value)
