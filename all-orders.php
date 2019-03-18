@@ -178,7 +178,7 @@ include 'includes/connect.php';
                     </a>
 										</form>';
 								}
-								echo'</div></li>';
+								echo'</div></li>'.'<hr style="height: 0px; border-top: 5px solid black">';
 					}
 					?>
 					</ul>
