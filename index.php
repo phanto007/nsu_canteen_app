@@ -139,8 +139,8 @@ include 'includes/wallet.php';
                       <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Item Price in BDT</th>
-                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Qty</th>
                       </tr>
                     </thead>
 
@@ -151,7 +151,7 @@ include 'includes/wallet.php';
 				{
           echo '<tr><td><img style="display:block;" width="100%"  src="'.$row["image"].'"></img></td>';
 					echo '<td>'.$row["name"].'</td><td>'.$row["price"].'</td>';               
-					echo '<td><div class="input-field col s12"><label for='.$row["id"].' class="">Quantity</label>';
+					echo '<td><div class="input-field col s12"><label for='.$row["id"].' class="">Qty</label>';
 					echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td></tr>';
 				}
 				?>
