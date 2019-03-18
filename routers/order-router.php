@@ -12,7 +12,7 @@ if(isset($_POST['description'])){
 foreach ($_POST as $key => $value)
 {
 	if(is_numeric($key)){
-		$total = $total + getPrice($key);
+		$total = $total + (getPrice($key)*$value);
 	}
 }
 
