@@ -162,7 +162,7 @@ include 'includes/wallet.php';
 								if(preg_match('/^Yet to be delivered/', $status)){
 
   								echo '<form action="routers/cancel-order.php" method="post">
-  										<input type="hidden" value="'.$id.'" name="id">
+  										<input type="hidden" value="'.$row1['order_id'].'" name="id">
   										<input type="hidden" value="Cancelled by Customer" name="status">	
   										<input type="hidden" value="'.$row['payment_type'].'" name="payment_type">											
   										<button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel Order
