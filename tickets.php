@@ -29,7 +29,7 @@ include 'includes/wallet.php';
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <!-- Custome CSS-->    
-  <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">

@@ -29,7 +29,7 @@ include 'includes/wallet.php';
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <!-- Custome CSS-->    
-  <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
@@ -227,6 +227,22 @@ include 'includes/wallet.php';
     <script type="text/javascript" src="js/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/custom-script.js"></script>
+
+    <script type="text/javascript">
+      $( document ).ready(function() {
+
+        var interval = self.setInterval(function(){checkupdates()},1000);
+          
+      });
+
+      function checkupdates(){
+        $.ajax({url: "checkstatus.php", success: function(result){
+            if(result==1){
+              window.location.reload();
+            }
+          }});
+      }
+    </script>
 </body>
 
 </html>
