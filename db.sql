@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 10:32 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Mar 18, 2019 at 02:44 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,7 +79,11 @@ INSERT INTO `items` (`id`, `name`, `price`, `image`, `deleted`) VALUES
 (2, 'Chicken BBQ', 45, 'images/food-items/chicken-bbq.jpeg', 0),
 (3, 'Coffee', 20, 'images/food-items/coffee.jpeg', 0),
 (4, 'Samucha', 15, 'images/food-items/samucha.jpeg', 0),
-(5, 'Pudding', 20, 'images/food-items/pudding.jpeg', 0);
+(5, 'Pudding', 20, 'images/food-items/pudding.jpeg', 0),
+(6, 'Halua', 10, '', 0),
+(7, 'Lemon Juice', 10, 'images/food-items/', 0),
+(8, 'Noodles', 35, 'images/food-items/noodles.jpg', 0),
+(9, 'Fruit Salad', 50, 'images/food-items/salad.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -115,13 +119,19 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', '', 0, 0),
 (8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', '', 0, 1),
 (9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', '', 0, 1),
-(10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 0, 1),
-(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 0, 0),
-(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 0, 0),
-(13, 11, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 0, 0),
-(15, 11, '', '', '2019-03-18 13:36:32', 'Wallet', 25, 'Yet to be delivered', 'LLcgfyc8NG', 0, 0),
-(16, 11, '', '', '2019-03-18 14:04:25', 'Wallet', 20, 'Verified', '2AAIsOeFA1', 0, 0),
-(17, 11, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Yet to be delivered', 'KSBs1r1zUq', 0, 0);
+(10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 1, 1),
+(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 1, 0),
+(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 1, 0),
+(13, 11, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 1, 0),
+(15, 11, '', '', '2019-03-18 13:36:32', 'Wallet', 25, 'Cancelled by Customer', 'LLcgfyc8NG', 1, 1),
+(16, 11, '', '', '2019-03-18 14:04:25', 'Wallet', 20, 'Verified', '2AAIsOeFA1', 1, 0),
+(17, 11, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Cancelled by Customer', 'KSBs1r1zUq', 1, 1),
+(18, 11, '', '', '2019-03-18 15:50:08', 'Wallet', 50, 'Verified', 'hNDd9KbZv1', 1, 0),
+(19, 11, '', '', '2019-03-18 15:59:44', 'Wallet', 45, 'Cancelled by Customer', 'w0BuVBw0L4', 1, 1),
+(20, 11, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Ready for pickup', 'a7nl4g8MbT', 1, 0),
+(21, 11, '', '', '2019-03-18 16:42:20', 'Wallet', 25, 'Ready for pickup', 'FUHRtagh35', 1, 0),
+(22, 11, '', '', '2019-03-18 17:53:41', 'Wallet', 125, 'Ready for pickup', 'i6PtvOpdpB', 1, 0),
+(23, 11, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -167,7 +177,14 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (23, 13, 2, 7, 315),
 (24, 15, 1, 1, 25),
 (25, 16, 3, 2, 40),
-(26, 17, 1, 5, 125);
+(26, 17, 1, 5, 125),
+(27, 18, 1, 2, 50),
+(28, 19, 4, 3, 45),
+(29, 20, 3, 5, 100),
+(30, 21, 1, 1, 25),
+(31, 22, 1, 5, 125),
+(32, 23, 3, 1, 20),
+(33, 23, 8, 1, 35);
 
 -- --------------------------------------------------------
 
@@ -284,7 +301,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 8980),
+(10, 11, 8675),
 (11, 12, 10);
 
 --
@@ -370,19 +387,19 @@ ALTER TABLE `deposits`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tickets`
