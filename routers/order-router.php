@@ -2,7 +2,7 @@
 include '../includes/connect.php';
 include '../includes/wallet.php';
 include '../includes/functions.php';
-$total = 0;
+$total = 0.0;
 
 $description =  "";
 
@@ -12,7 +12,7 @@ if(isset($_POST['description'])){
 foreach ($_POST as $key => $value)
 {
 	if(is_numeric($key)){
-		$total = $total + (getPrice($key)*$value);
+		$total = $total + (getPrice($key) * $value);
 	}
 }
 
