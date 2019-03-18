@@ -106,6 +106,7 @@ include 'includes/wallet.php';
 					}else{
 
               $sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND status NOT LIKE '$qq' AND status NOT LIKE '$yy' AND status NOT LIKE '$zz' ORDER BY id DESC;");
+          }
 					
 					echo '              <div class="row">
                 <div>
