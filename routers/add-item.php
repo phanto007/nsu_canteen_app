@@ -9,7 +9,7 @@ if(isset($_POST["action"]) && !empty($_FILES["file"]["name"])) {
 
 	// Image upload path
 
-	$targetDir = "/opt/lampp/htdocs/nsu_canteen_app/images/food-items/"; // Adib change this to correct site wide file path
+	$targetDir = "C:/xampp/htdocs/nsu/images/food-items/"; // Adib change this to correct site wide file path
 	$fileName = basename($_FILES["file"]["name"]);
 	$targetFilePath = $targetDir . $fileName;
 	$fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);

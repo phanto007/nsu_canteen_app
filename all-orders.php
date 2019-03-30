@@ -114,6 +114,8 @@ include 'includes/connect.php';
 							  <form method="post" action="routers/edit-orders.php">
 							    <input type="hidden" value="'.$row['id'].'" name="id">
 								<select name="status">
+								<option value="Processing" '.($status=='Processing' ? 'selected' : '').'>Processing</option>
+                <option value="Verified" '.($status=='Verified' ? 'selected' : '').'>Verified</option>
 								<option value="Yet to be delivered" '.($status=='Yet to be delivered' ? 'selected' : '').'>Yet to be delivered</option>
 								<option value="Delivered" '.($status=='Delivered' ? 'selected' : '').'>Delivered</option>
 								<option value="Cancelled by Admin" '.($status=='Cancelled by Admin' ? 'selected' : '').'>Cancelled by Admin</option>
@@ -222,6 +224,21 @@ include 'includes/connect.php';
     <script type="text/javascript" src="js/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+
+        var interval = self.setInterval(function(){checkupdates()},1000);
+          
+      });
+
+      function checkupdates(){
+        $.ajax({url: "checkstatus3.php", success: function(result){
+            if(result==1){
+              window.location.reload();
+            }
+          }});
+      }
+    </script>
 </body>
 
 </html>

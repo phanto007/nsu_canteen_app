@@ -34,7 +34,7 @@ if($_SESSION['customer_sid'] == session_id() && isset($_GET['o_id']) && isset($_
 	if ($verification_string == $decrypted_string) {
 
 		$verified = "Verified";
-		$sql = "UPDATE orders SET status = '$verified' where id = '$o_id'";
+		$sql = "UPDATE orders SET status = '$verified', status_delivered_2 = '0', status_delivered_3 = '0' where id = '$o_id'";
 		$con->query($sql);
 		header("location:orders.php");
 		
