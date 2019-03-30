@@ -47,6 +47,7 @@ if ($con->query($sql) === TRUE){
 			$con->query($sql) === TRUE;		
 		}
 	}
+		sendNotification($user_id, "Your Order#".$order_id." has been placed!");
 		header("location: ../orders.php");
 }
 
