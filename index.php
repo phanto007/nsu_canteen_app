@@ -150,7 +150,7 @@ include 'includes/wallet.php';
 				$result = mysqli_query($con, "SELECT * FROM items where not deleted;");
 				while($row = mysqli_fetch_array($result))
         {
-          echo '<tr><td><img style="display:block;" width="50%"  src="'.$row["image"].'"></img></td>';
+          echo '<tr><td><img style="display:block;" width="100%"  src="'.$row["image"].'"></img></td>';
           echo '<td>'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
           echo '<td><div class="input-field col s12"><label for='.$row["id"].' class=""></label>';
                     

@@ -1,9 +1,23 @@
 <?php
 include 'includes/connect.php';
 include 'includes/wallet.php';
+include 'includes/functions.php';
 
   if($_SESSION['customer_sid']==session_id())
   {
+
+    $user_id = $_SESSION['user_id'];
+    if (isset($_POST['calorie'])){
+      $calorie = sanitizeData($_POST['calorie']);
+
+      $sql = "UPDATE users SET calorie = '$calorie' WHERE id = $user_id;";
+      if($con->query($sql) == true) {
+        $_SESSION['name'] = $name;
+      }
+
+      header("location: ./");
+
+    }
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +142,7 @@ include 'includes/wallet.php';
         <div class="container">
           <p class="caption">Set your daily calorie allowance</p>
           <div class="divider"></div>
-          <form class="formValidate" id="formValidate" method="post" action="#" novalidate="novalidate">
+          <form class="formValidate" id="formValidate" method="post" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
                 <h4 class="header">Calorie Amount</h4>
@@ -138,7 +152,7 @@ include 'includes/wallet.php';
                   <div class="input-field col s12">
                     <i class="mdi-maps-local-pizza"></i>
                     <div class="range-slider">
-                    <input ondragleave="sliderChange(this)" id="calorieSlider" class="no-border" type="range" value="1500" min="500" max="3000"/>
+                    <input onchange="sliderChange(this.value)" id="calorieSlider" name="calorie" class="no-border" type="range" value="1500" min="500" max="3000"/>
                     <p>Calories: <b><span id="calories">0</span></b></p>    
                   </div>
                 </div>
@@ -196,8 +210,9 @@ include 'includes/wallet.php';
     <script type="text/javascript">
 
     function sliderChange(val) {
-    document.getElementById('calories').innerHTML = val;
-}
+
+      document.getElementById('calories').innerHTML = val;
+    }
 
     </script>
 </body>
