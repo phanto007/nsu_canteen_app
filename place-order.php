@@ -11,6 +11,24 @@ $address = $row['address'];
 $contact = $row['contact'];
 $verified = $row['verified'];
 }
+        $rflag = 1;
+        foreach ($_POST as $key => $value)
+						{
+							if($key == 'action' || $value == '' || $value == 0){
+								continue;
+							}
+							if($value>=0){
+                                $rflag = 0;
+                                break;
+                            }
+						}
+        
+        if($rflag == 1){
+                header('Location: ./');
+                die();
+            }
+        
+        
 		?>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,7 +182,7 @@ $verified = $row['verified'];
 					  <?php
 					  	foreach ($_POST as $key => $value)
 						{
-							if($key == 'action' || $value == ''){
+							if($key == 'action' || $value == '' || $value == 0){
 								continue;
 							}
 							echo '<input name="'.$key.'" type="hidden" value="'.$value.'">';
@@ -198,7 +216,7 @@ $verified = $row['verified'];
 		
 	foreach ($_POST as $key => $value)
 	{
-		if($value == ''){
+		if($value == '' || $value == 0){
 			continue;
 		}
 		if(is_numeric($key)){
@@ -224,8 +242,11 @@ $verified = $row['verified'];
         </div>
     </li>';
 		$total = $total + $price;
+            
 	}
 	}
+        
+        
     echo '<li class="collection-item">
         <div class="row">
             <div class="col s7">
