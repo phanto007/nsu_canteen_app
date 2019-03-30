@@ -75,6 +75,7 @@ include 'includes/wallet.php';
   .right-alert textarea.materialize-textarea + label:after{
       right:70px;
   }
+
   </style> 
 </head>
 
@@ -148,12 +149,20 @@ include 'includes/wallet.php';
 				<?php
 				$result = mysqli_query($con, "SELECT * FROM items where not deleted;");
 				while($row = mysqli_fetch_array($result))
-				{
-          echo '<tr><td><img style="display:block;" width="100%"  src="'.$row["image"].'"></img></td>';
-					echo '<td>'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
-					echo '<td><div class="input-field col s12"><label for='.$row["id"].' class="">Qty</label>';
-					echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td></tr>';
-				}
+        {
+          echo '<tr><td><img style="display:block;" width="50%"  src="'.$row["image"].'"></img></td>';
+          echo '<td>'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
+          echo '<td><div class="input-field col s12"><label for='.$row["id"].' class=""></label>';
+          echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="text" data-error=".errorTxt'.$row["id"].'">
+
+          <div class="errorTxt'.$row["id"].'"></div>
+
+          <input type="button" class="btn" value="-" id="minus" onclick="minusFood('.$row["id"].')">
+          <input type="button" class="btn" value="+" id="plus"  onclick="plusFood('.$row["id"].')">
+
+          </div>
+          </td></tr>';
+        }
 				?>
                     </tbody>
                 </table>
@@ -255,7 +264,34 @@ include 'includes/wallet.php';
           }
         }
      });
-    </script>
+  </script>
+
+  <script>
+      var count;
+      //var countEl = document.getElementById("count");
+
+      function plusFood(plusId){
+          var count = document.getElementById(plusId).value;
+
+          if (count < 10){
+            count++;
+            document.getElementById(plusId).value = count;
+          } else{
+            return;
+          }
+          
+      }
+      function minusFood(minusId){
+        var count = document.getElementById(minusId).value;
+
+        if (count > 0) {
+          count--;
+          document.getElementById(minusId).value = count;
+        } else{
+           return;
+        }
+      }s
+  </script>
 </body>
 
 </html>
