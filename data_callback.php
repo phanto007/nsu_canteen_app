@@ -9,7 +9,7 @@
 
 include 'includes/connect.php';
 include 'includes/wallet.php';
-
+include 'includes/functions.php';
 include ('walletmix.php');
 
 
@@ -58,7 +58,7 @@ if(isset($_POST['merchant_txn_data'])){
 
 						$sql = "UPDATE wallet SET balance=balance+'$received_amount' WHERE customer_id='$customer_id';";
 						$con->query($sql);
-
+						sendNotification($customer_id, "Deposit of amount ৳".$received_amount." has been credited to your account.");
 						echo 'Update merchant database with success. amount : '.$wmx_response->bank_amount_bdt;
 						header("location:./");
 					}else{
