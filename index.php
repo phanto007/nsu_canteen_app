@@ -138,7 +138,7 @@ include 'includes/wallet.php';
                   <table id="data-table-customer" class="table table-striped w-auto" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Image</th>
+                        <th >Image</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Qty</th>
@@ -153,12 +153,17 @@ include 'includes/wallet.php';
           echo '<tr><td><img style="display:block;" width="50%"  src="'.$row["image"].'"></img></td>';
           echo '<td>'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
           echo '<td><div class="input-field col s12"><label for='.$row["id"].' class=""></label>';
-          echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="text" data-error=".errorTxt'.$row["id"].'">
+                    
+          echo '
+          <input type="button" style="height:32px; width:62px;" class="btn" value="+" id="plus"  onclick="plusFood('.$row["id"].')">
+          <input id="'.$row["id"].'" name="'.$row['id'].'" value="0" style="text-align:center;outline: none;background-color: transparent;border: 0px none; width:62px;" data-error=".errorTxt'.$row["id"].'">
+          <input type="button" style="height:32px; width:62px;" class="btn" value="-" id="minus" onclick="minusFood('.$row["id"].')">
 
           <div class="errorTxt'.$row["id"].'"></div>
-
-          <input type="button" class="btn" value="-" id="minus" onclick="minusFood('.$row["id"].')">
-          <input type="button" class="btn" value="+" id="plus"  onclick="plusFood('.$row["id"].')">
+          
+          
+          
+          
 
           </div>
           </td></tr>';
