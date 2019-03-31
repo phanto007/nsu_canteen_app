@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2019 at 08:46 AM
+-- Generation Time: Mar 31, 2019 at 02:47 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -90,17 +90,17 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`id`, `name`, `price`, `calorie`, `image`, `deleted`) VALUES
 (1, 'Shingara', 25, 150, 'images/food-items/shingara.jpg', 0),
-(2, 'Chicken BBQ', 45, 300, 'images/food-items/chicken-bbq.jpeg', 0),
+(2, 'Chicken-BBQ', 45, 300, 'images/food-items/chicken-bbq.jpeg', 0),
 (3, 'Coffee', 20, 100, 'images/food-items/coffee.jpeg', 0),
 (4, 'Samucha', 15, 120, 'images/food-items/samucha.jpeg', 0),
 (5, 'Pudding', 20, 500, 'images/food-items/pudding.jpeg', 0),
 (6, 'Halua', 10, 200, 'images/food-items/halua.jpeg', 0),
-(7, 'Lemon Juice', 10, 60, 'images/food-items/lemon-juice.jpg', 0),
+(7, 'Lemon Juice', 10, 50, 'images/food-items/lemon-juice.jpg', 0),
 (8, 'Noodles', 35, 450, 'images/food-items/noodles.jpg', 0),
 (9, 'Fruit Salad', 50, 350, 'images/food-items/salad.jpeg', 0),
 (10, 'test1', 10, 0, 'images/food-items/Cat03.jpg', 0),
 (11, 'Pizza', 120, 1200, 'images/food-items/pizza.jpeg', 0),
-(12, 'Fish and Chips', 300, 650, 'images/food-items/fishandchips.jpeg', 0);
+(12, 'Fish and Chips', 300, 700, 'images/food-items/fishandchips.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -344,7 +344,7 @@ INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `add
 (9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
 (10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, NULL, 0, 0),
 (11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', 'North South University, Bashundhara R/A', 'Dhaka', '1205', 'Bangladesh', 12345689, 'lpMyhT4BL4mHs', 2052, 1, 0),
-(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', NULL, 0, 0),
+(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', NULL, 1, 0),
 (13, 'Customer', 'asd', 'user18', '$2y$12$STix7MRkzsJlNYcjZCXW9eDsi2O/SVb.DnAT1R80SgbyVCkoHReVe', 'asd@asd.com', NULL, '', '', 'Bangladesh', 0, 'IA3lMuQwKCU2K', NULL, 0, 0),
 (14, 'Customer', 'Edwardthish', 'Edwardthis', '$2y$12$h4b5xA5JVGeCarK/PqpKWuafp7coQw9/xxfAHmXIZ8OsPx2ZKsn3i', 'khaydaralikas9@mail.ru', NULL, '', '', 'Bangladesh', 0, 'ac9M4gmj5kPsG', NULL, 0, 0);
 
@@ -375,7 +375,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (8, 8, 0),
 (9, 10, 1915),
 (10, 11, 50),
-(11, 12, 10),
+(11, 12, 1000),
 (12, 13, 50),
 (13, 14, 0);
 
