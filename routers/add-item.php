@@ -6,9 +6,11 @@ include '../includes/connect.php';
 if(isset($_POST["action"]) && !empty($_FILES["file"]["name"])) {
 	$name = $_POST['name'];
 	$price = $_POST['price'];
+	$calorie = $_POST['calorie'];
 
 	// Image upload path
 
+	//$targetDir = "/opt/lampp/htdocs/nsu_canteen_app/images/food-items/";
 	$targetDir = "C:/xampp/htdocs/nsu/images/food-items/"; // Adib change this to correct site wide file path
 	$fileName = basename($_FILES["file"]["name"]);
 	$targetFilePath = $targetDir . $fileName;
@@ -17,7 +19,7 @@ if(isset($_POST["action"]) && !empty($_FILES["file"]["name"])) {
 
 	// Upload file to correct directory
 	if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-		$sql = "INSERT into items (name, price, image) VALUES ('$name', '$price', '$targetDirDatabase')";
+		$sql = "INSERT into items (name, price, calorie, image) VALUES ('$name', '$price', '$calorie', '$targetDirDatabase')";
 		$con->query($sql);
 		header("location: ../admin-page.php");
 	}
