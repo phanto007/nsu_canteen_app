@@ -15,6 +15,11 @@ include '../includes/connect.php';
 			$sql = "UPDATE items SET price = $value WHERE id = $key;";
 			$con->query($sql);
 		}
+		if(preg_match("/[0-9]+_calorie/",$key)){
+			$key = strtok($key, '_');
+			$sql = "UPDATE items SET calorie = $value WHERE id = $key;";
+			$con->query($sql);
+		}
 		if(preg_match("/[0-9]+_hide/",$key)){
 			if($_POST[$key] == 1){
 			$key = strtok($key, '_');

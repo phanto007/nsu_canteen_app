@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 09:57 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Mar 31, 2019 at 08:46 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,6 +79,7 @@ CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `price` int(11) NOT NULL,
+  `calorie` double NOT NULL,
   `image` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -87,17 +88,19 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `price`, `image`, `deleted`) VALUES
-(1, 'Shingara', 25, 'images/food-items/shingara.jpg', 0),
-(2, 'Chicken BBQ', 45, 'images/food-items/chicken-bbq.jpeg', 0),
-(3, 'Coffee', 20, 'images/food-items/coffee.jpeg', 0),
-(4, 'Samucha', 15, 'images/food-items/samucha.jpeg', 0),
-(5, 'Pudding', 20, 'images/food-items/pudding.jpeg', 0),
-(6, 'Halua', 10, 'images/food-items/halua.jpeg', 0),
-(7, 'Lemon Juice', 10, 'images/food-items/lemon-juice.jpg', 0),
-(8, 'Noodles', 35, 'images/food-items/noodles.jpg', 0),
-(9, 'Fruit Salad', 50, 'images/food-items/salad.jpeg', 0),
-(10, 'test1', 10, 'images/food-items/Cat03.jpg', 0);
+INSERT INTO `items` (`id`, `name`, `price`, `calorie`, `image`, `deleted`) VALUES
+(1, 'Shingara', 25, 150, 'images/food-items/shingara.jpg', 0),
+(2, 'Chicken BBQ', 45, 300, 'images/food-items/chicken-bbq.jpeg', 0),
+(3, 'Coffee', 20, 100, 'images/food-items/coffee.jpeg', 0),
+(4, 'Samucha', 15, 120, 'images/food-items/samucha.jpeg', 0),
+(5, 'Pudding', 20, 500, 'images/food-items/pudding.jpeg', 0),
+(6, 'Halua', 10, 200, 'images/food-items/halua.jpeg', 0),
+(7, 'Lemon Juice', 10, 60, 'images/food-items/lemon-juice.jpg', 0),
+(8, 'Noodles', 35, 450, 'images/food-items/noodles.jpg', 0),
+(9, 'Fruit Salad', 50, 350, 'images/food-items/salad.jpeg', 0),
+(10, 'test1', 10, 0, 'images/food-items/Cat03.jpg', 0),
+(11, 'Pizza', 120, 1200, 'images/food-items/pizza.jpeg', 0),
+(12, 'Fish and Chips', 300, 650, 'images/food-items/fishandchips.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `pa
 (38, 11, '', '', '2019-03-27 14:02:09', 'Wallet', 35, 'Verified', 'PqJFK0l7yn', 1, 1, 1, 0),
 (39, 11, '', '', '2019-03-27 14:21:39', 'Wallet', 20, 'Paused', 'uCkYghBDiC', 1, 0, 1, 0),
 (40, 11, '', '', '2019-03-27 15:00:15', 'Wallet', 70, 'Delivered', 'WQFSUmmfb0', 1, 0, 1, 0),
-(41, 11, '', '', '2019-03-27 15:07:19', 'Wallet', 250, 'Yet to be delivered', 'ugcb7Q7cVa', 1, 0, 1, 0);
+(41, 11, '', '', '2019-03-27 15:07:19', 'Wallet', 250, 'Yet to be delivered', 'ugcb7Q7cVa', 1, 0, 1, 0),
+(42, 11, '', '', '2019-03-30 17:48:18', 'Wallet', 90, 'Cancelled by Customer', 'mTBqgQtqqd', 1, 0, 1, 1),
+(43, 11, '', '', '2019-03-30 20:46:25', 'Wallet', 100, 'Verified', 'DW4qUC1Q6O', 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -245,7 +250,11 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (57, 40, 1, 2, 50),
 (58, 40, 3, 1, 20),
 (59, 41, 1, 1, 25),
-(60, 41, 2, 5, 225);
+(60, 41, 2, 5, 225),
+(61, 42, 1, 1, 25),
+(62, 42, 2, 1, 45),
+(63, 42, 3, 1, 20),
+(64, 43, 1, 4, 100);
 
 -- --------------------------------------------------------
 
@@ -314,6 +323,7 @@ CREATE TABLE `users` (
   `country` varchar(50) NOT NULL DEFAULT 'Bangladesh',
   `contact` bigint(11) NOT NULL,
   `pkey` varchar(13) DEFAULT NULL,
+  `calorie` double DEFAULT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -322,21 +332,21 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `pkey`, `verified`, `deleted`) VALUES
-(1, 'Administrator', 'Admin 1', 'root', '$2y$12$fUXNoUTeFwzmKgT6jUV.4OacdqSj3aRSWVqXElldW.kH.u2KXpmaq', 'admin@admin.com', 'Address 1', '', '', 'Bangladesh', 9898000000, NULL, 1, 0),
-(2, 'Customer', 'Customer 1', 'user1', 'pass1', 'mail2@example.com', 'Address 2', '', '', 'Bangladesh', 9898000001, NULL, 1, 0),
-(3, 'Customer', 'Customer 2', 'user2', 'pass2', 'mail3@example.com', 'Address 3', '', '', 'Bangladesh', 9898000002, NULL, 1, 0),
-(4, 'Customer', 'Customer 3', 'user3', 'pass3', 'mail4@example.com', '', '', '', 'Bangladesh', 9898000003, NULL, 0, 0),
-(5, 'Customer', 'Customer 4', 'user4', 'pass4', 'mail5@example.com', '', '', '', 'Bangladesh', 9898000004, NULL, 0, 1),
-(6, 'Customer', 'Test User 10', 'user10', '12345678', 'mai10@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
-(7, 'Customer', 'Test User 12', 'user12', '$2y$12$5f2agh.qS', 'mail12@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
-(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
-(9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, 0, 0),
-(10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, 0, 0),
-(11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', 'North South University, Bashundhara R/A', 'Dhaka', '1205', 'Bangladesh', 12345689, 'lpMyhT4BL4mHs', 1, 0),
-(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', 0, 0),
-(13, 'Customer', 'asd', 'user18', '$2y$12$STix7MRkzsJlNYcjZCXW9eDsi2O/SVb.DnAT1R80SgbyVCkoHReVe', 'asd@asd.com', NULL, '', '', 'Bangladesh', 0, 'IA3lMuQwKCU2K', 0, 0),
-(14, 'Customer', 'Edwardthish', 'Edwardthis', '$2y$12$h4b5xA5JVGeCarK/PqpKWuafp7coQw9/xxfAHmXIZ8OsPx2ZKsn3i', 'khaydaralikas9@mail.ru', NULL, '', '', 'Bangladesh', 0, 'ac9M4gmj5kPsG', 0, 0);
+INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `address`, `city`, `post`, `country`, `contact`, `pkey`, `calorie`, `verified`, `deleted`) VALUES
+(1, 'Administrator', 'Admin 1', 'root', '$2y$12$fUXNoUTeFwzmKgT6jUV.4OacdqSj3aRSWVqXElldW.kH.u2KXpmaq', 'admin@admin.com', 'Address 1', '', '', 'Bangladesh', 9898000000, NULL, NULL, 1, 0),
+(2, 'Customer', 'Customer 1', 'user1', 'pass1', 'mail2@example.com', 'Address 2', '', '', 'Bangladesh', 9898000001, NULL, NULL, 1, 0),
+(3, 'Customer', 'Customer 2', 'user2', 'pass2', 'mail3@example.com', 'Address 3', '', '', 'Bangladesh', 9898000002, NULL, NULL, 1, 0),
+(4, 'Customer', 'Customer 3', 'user3', 'pass3', 'mail4@example.com', '', '', '', 'Bangladesh', 9898000003, NULL, NULL, 0, 0),
+(5, 'Customer', 'Customer 4', 'user4', 'pass4', 'mail5@example.com', '', '', '', 'Bangladesh', 9898000004, NULL, NULL, 0, 0),
+(6, 'Customer', 'Test User 10', 'user10', '12345678', 'mai10@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
+(7, 'Customer', 'Test User 12', 'user12', '$2y$12$5f2agh.qS', 'mail12@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
+(8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
+(9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
+(10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, NULL, 0, 0),
+(11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', 'North South University, Bashundhara R/A', 'Dhaka', '1205', 'Bangladesh', 12345689, 'lpMyhT4BL4mHs', 2052, 1, 0),
+(12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', NULL, 0, 0),
+(13, 'Customer', 'asd', 'user18', '$2y$12$STix7MRkzsJlNYcjZCXW9eDsi2O/SVb.DnAT1R80SgbyVCkoHReVe', 'asd@asd.com', NULL, '', '', 'Bangladesh', 0, 'IA3lMuQwKCU2K', NULL, 0, 0),
+(14, 'Customer', 'Edwardthish', 'Edwardthis', '$2y$12$h4b5xA5JVGeCarK/PqpKWuafp7coQw9/xxfAHmXIZ8OsPx2ZKsn3i', 'khaydaralikas9@mail.ru', NULL, '', '', 'Bangladesh', 0, 'ac9M4gmj5kPsG', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -364,7 +374,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 150),
+(10, 11, 50),
 (11, 12, 10),
 (12, 13, 50),
 (13, 14, 0);
@@ -452,19 +462,19 @@ ALTER TABLE `deposits`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `tickets`

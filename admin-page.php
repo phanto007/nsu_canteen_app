@@ -141,6 +141,7 @@ include 'includes/connect.php';
                       <tr>
                         <th>Name</th>
                         <th>Item Price/Piece</th>
+                        <th>Calorie</th>
                         <th>Available</th>
                       </tr>
                     </thead>
@@ -151,9 +152,18 @@ include 'includes/connect.php';
 				while($row = mysqli_fetch_array($result))
 				{
 					echo '<tr><td><div class="input-field col s12"><label for="'.$row["id"].'_name">Name</label>';
-					echo '<input value="'.$row["name"].'" id="'.$row["id"].'_name" name="'.$row['id'].'_name" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';					
+					echo '<input value="'.$row["name"].'" id="'.$row["id"].'_name" name="'.$row['id'].'_name" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';
+
 					echo '<td><div class="input-field col s12 "><label for="'.$row["id"].'_price">Price</label>';
-					echo '<input value="'.$row["price"].'" id="'.$row["id"].'_price" name="'.$row['id'].'_price" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';                   
+
+					echo '<input value="'.$row["price"].'" id="'.$row["id"].'_price" name="'.$row['id'].'_price" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';
+
+          echo '<td><div class="input-field col s12 "><label for="'.$row["calorie"].'_calorie">Calorie</label>';
+
+          echo '<input value="'.$row["calorie"].'" id="'.$row["id"].'_calorie" name="'.$row['id'].'_calorie" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';
+
+
+
 					echo '<td>';
 					if($row['deleted'] == 0){
 						$text1 = 'selected';
@@ -190,6 +200,7 @@ include 'includes/connect.php';
                       <tr>
                         <th data-field="id">Name</th>
                         <th data-field="name">Item Price/Piece</th>
+                        <th data-field="calorie">Calorie</th>
                         <th data-field="image">Food Image</th>
                       </tr>
                     </thead>
@@ -199,9 +210,11 @@ include 'includes/connect.php';
 					echo '<tr><td><div class="input-field col s12"><label for="name">Name</label>';
 					echo '<input id="name" name="name" type="text" data-error=".errorTxt01"><div class="errorTxt01"></div></td>';					
 					echo '<td><div class="input-field col s12 "><label for="price" class="">Price</label>';
-					echo '<input id="price" name="price" type="text" data-error=".errorTxt02"><div class="errorTxt02"></div></td>';
+					echo '<input id="price" name="price" type="number" data-error=".errorTxt02"><div class="errorTxt02"></div></td>';
+          echo '<td><div class="input-field col s12 "><label for="calorie" class="">Calorie</label>';
+          echo '<input id="calorie" name="calorie" type="number" data-error=".errorTxt03"><div class="errorTxt03"></div></td>';
           echo '<td><div class="input-field col s12 "><label for="image"></label>';
-          echo '<input id="image" name="file" type="file" data-error=".errorTxt03"><div class="errorTxt03"></div></td>';
+          echo '<input id="image" name="file" type="file" data-error=".errorTxt04"><div class="errorTxt04"></div></td>';
           echo '<td></tr>';
 				?>
                     </tbody>
@@ -268,12 +281,12 @@ include 'includes/connect.php';
 			{
 				echo $row["id"].'_name:{
 				required: true,
-				minlength: 5,
-				maxlength: 20 
+				minlength: 1,
+				maxlength: 255 
 				},';
 				echo $row["id"].'_price:{
 				required: true,	
-				min: 0
+				min: 1
 				},';				
 			}
 		echo '},';
@@ -285,12 +298,12 @@ include 'includes/connect.php';
 			{  
 				echo $row["id"].'_name:{
 				required: "Ener item name",
-				minlength: "Minimum length is 5 characters",
-				maxlength: "Maximum length is 20 characters"
+				minlength: "Minimum length is 1 characters",
+				maxlength: "Maximum length is 255 characters"
 				},';
 				echo $row["id"].'_price:{
 				required: "Ener price of item",
-				min: "Minimum item price is Rs. 0"
+				min: "Minimum item price is BDT. 1"
 				},';				
 			}
 		echo '},';
@@ -311,22 +324,28 @@ include 'includes/connect.php';
         rules: {
 		name: {
 				required: true,
-				minlength: 5
+				minlength: 1
 			},
 		price: {
 				required: true,
-				min: 0
+				min: 1
 			},
+    calorie: {
+      required: true,
+    },
 	},
         messages: {
 		name: {
 				required: "Enter item name",
-				minlength: "Minimum length is 5 characters"
+				minlength: "Minimum length is 1 characters"
 			},
-		 price: {
-				required: "Enter item price",
-				minlength: "Minimum item price is Rs.0"
-			},
+	  price: {
+			  required: "Enter item price",
+			  minlength: "Minimum item price is BDT.1"
+		},
+    calorie: {
+        required: "Enter item calorie"
+    },
 	},
 		errorElement : 'div',
         errorPlacement: function(error, element) {
