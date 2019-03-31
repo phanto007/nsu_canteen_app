@@ -127,8 +127,8 @@ include 'includes/wallet.php';
 
         <!--start container-->
         <div class="container">
-          <p class="caption">Order your food here.</p>
-          <div class="divider"></div>
+          <p class="caption">Search food items</p>
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for food items...">
 		      <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
@@ -291,7 +291,35 @@ include 'includes/wallet.php';
         } else{
            return;
         }
-      }s
+      }
+  </script>
+
+  <script type="text/javascript">
+
+      function myFunction() {
+        // Declare variables 
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data-table-customer");
+        tr = table.getElementsByTagName("tr");
+
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          } 
+        }
+      }
+</script>
+
   </script>
 </body>
 
