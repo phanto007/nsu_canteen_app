@@ -13,6 +13,20 @@ include 'includes/wallet.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="manifest" href="/manifest.json" />
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "d8bb0455-71e2-4ccd-af9a-ce48767d1709",
+      });
+      OneSignal.sendTag("userid", "<?php echo $user_id; ?>");
+    });
+
+  </script>
+
   <title>Order Food</title>
 
   <!-- Favicons-->
