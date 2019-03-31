@@ -21,6 +21,7 @@
             </li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
+                    	<li class="bold"><a href="manual-order.php" class="waves-effect waves-cyan"><i class="mdi-maps-restaurant-menu"></i> Manual Order</a></li>
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Orders</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -58,7 +59,7 @@
                     </ul>
                 </li>			
             <li class="bold"><a href="users.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i> Users</a></li>
-            <li class="bold"><a href="users.php" class="waves-effect waves-cyan"><i class="mdi-maps-restaurant-menu"></i> Manual Order</a></li>
+            
             <li><a href="routers/logout.php"><i class="mdi-action-settings-power"></i>Logout</a></li>				
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
