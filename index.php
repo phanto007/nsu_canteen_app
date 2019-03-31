@@ -127,8 +127,8 @@ include 'includes/wallet.php';
 
         <!--start container-->
         <div class="container">
-          <p class="caption">Search food items</p>
-          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for food items...">
+          <p class="caption"><i class="mdi-action-search"></i> Search food items</p>
+          <input type="text" id="myInput" onkeyup="searchFood()" placeholder="Search for food items...">
 		      <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
@@ -296,7 +296,7 @@ include 'includes/wallet.php';
 
   <script type="text/javascript">
 
-      function myFunction() {
+      function searchFood() {
         // Declare variables 
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");

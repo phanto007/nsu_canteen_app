@@ -57,7 +57,9 @@
                             </div>
                         </li>
                     </ul>
-                </li>			
+                </li>
+
+            <li class="bold"><a href="admin-sales-stats.php" class="waves-effect waves-cyan"><i class="mdi-av-equalizer"></i> Sales Stats</a></li>
             <li class="bold"><a href="users.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i> Users</a></li>
             
             <li><a href="routers/logout.php"><i class="mdi-action-settings-power"></i>Logout</a></li>				

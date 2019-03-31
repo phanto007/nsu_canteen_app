@@ -288,46 +288,38 @@ include 'includes/connect.php';
         rules: {
             username: {
                 required: true,
-                minlength: 5,
-            },
-            password: {
-                required: true,
-                minlength: 5,
+                minlength: 1,
             },
             name: {
                 required: true,
-                minlength: 5,
+                minlength: 1,
 			},
             contact: {
-                required: true,
-                minlength: 4,
+                required: false,
+                minlength: 1,
 			},
             address: {
-                minlength: 10,
+                minlength: 1,
 			},		
             balance: {
-                required: true,
+                required: false,
 			},				
 		},
         messages: {
            username:{
                 required: "Enter a username",
-                minlength: "Enter at least 5 characters"
-            },	
-           password:{
-                required: "Provide a prove",
-                minlength: "Password must be atleast 5 characters long",
+                minlength: "Enter at least 1 characters"
             },	
            name:{
-                required: "Please provide CVV number",
-                minlength: "Enter at least 5 characters",		
+                required: "Enter a name",
+                minlength: "Enter at least 1 characters",		
             },	
            contact:{
-                required: "Please provide card number",
-                minlength: "Enter at least 4 digits",
+                required: "Please provide contact number",
+                minlength: "Enter at least 1 digit",
             },	
            address:{
-                minlength: "Address must be atleast 10 characters long",		
+                minlength: "Address must be atleast 1 character long",		
             },		
            balance:{
                 required: "Please provide a balance.",		
