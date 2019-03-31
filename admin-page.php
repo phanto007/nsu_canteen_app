@@ -133,7 +133,7 @@ include 'includes/connect.php';
 		  <form class="formValidate" id="formValidate" method="post" action="routers/menu-router.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
-                <h4 class="header">Order Food</h4>
+                <h4 class="header">Edit Menu</h4>
               </div>
               <div>
 				<table id="data-table-admin" class="table table-striped w-auto" cellspacing="0">
@@ -287,7 +287,11 @@ include 'includes/connect.php';
 				echo $row["id"].'_price:{
 				required: true,	
 				min: 1
-				},';				
+				},';
+        echo $row["id"].'_calorie:{
+        required: true, 
+        min: 1
+        },';				
 			}
 		echo '},';
 		?>
@@ -304,7 +308,10 @@ include 'includes/connect.php';
 				echo $row["id"].'_price:{
 				required: "Ener price of item",
 				min: "Minimum item price is BDT. 1"
-				},';				
+				},';
+        echo $row["id"].'_calorie:{
+        required: "Ener calorie of item"
+        },';				
 			}
 		echo '},';
 		?>
@@ -334,7 +341,7 @@ include 'includes/connect.php';
       required: true,
     },
 	},
-        messages: {
+  messages: {
 		name: {
 				required: "Enter item name",
 				minlength: "Minimum length is 1 characters"

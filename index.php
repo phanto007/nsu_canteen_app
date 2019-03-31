@@ -161,10 +161,6 @@ include 'includes/wallet.php';
 
           <div class="errorTxt'.$row["id"].'"></div>
           
-          
-          
-          
-
           </div>
           </td></tr>';
         }
