@@ -138,10 +138,10 @@ include 'includes/wallet.php';
                   <table id="data-table-customer" class="table table-striped w-auto" cellspacing="0">
                     <thead>
                       <tr>
-                        <th >Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Qty</th>
+                        <th style="width: 30%; text-align: center;">Image</th>
+                        <th style="width: 20%; text-align: center;">Name</th>
+                        <th style="width: 20%; text-align: center;">Price</th>
+                        <th style="text-align: center;">Quantity</th>
                       </tr>
                     </thead>
 
@@ -150,9 +150,9 @@ include 'includes/wallet.php';
 				$result = mysqli_query($con, "SELECT * FROM items where not deleted;");
 				while($row = mysqli_fetch_array($result))
         {
-          echo '<tr><td><img style="display:block;" width="100%" src="'.$row["image"].'"></img>Calorie: '.$row["calorie"].'</td>';
-          echo '<td>'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
-          echo '<td><div class="input-field col s12"><label for='.$row["id"].' class=""></label>';
+          echo '<tr><td style="text-align:center;"><img style="display:block;" width="100%" src="'.$row["image"].'"></img>Calorie: '.$row["calorie"].'</td>';
+          echo '<td style="text-align:center;">'.$row["name"].'</td><td>৳ '.$row["price"].'</td>';               
+          echo '<td style="text-align:center;"><div class="input-field col s12"><label for='.$row["id"].' class=""></label>';
                     
           echo '
           <input type="button" style="height:32px; width:62px;" class="btn" value="+" id="plus"  onclick="plusFood('.$row["id"].')">
