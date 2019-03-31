@@ -10,7 +10,7 @@ $con->query($sql);
 $result = mysqli_query($con, "SELECT customer_id FROM orders WHERE id = $id;");
 			while($row = mysqli_fetch_array($result))
 			{
-				sendNotification($row['customer_id'], "Order#".$id." Status Update: ".$status);
+				sendNotification($row['customer_id'], "Order #".$id." Status Update: ".$status);
 			}
 
 header("location: ../all-orders.php");
