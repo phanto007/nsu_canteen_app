@@ -4,6 +4,14 @@ include 'includes/wallet.php';
 $total = 0;
 if($_SESSION['customer_sid']==session_id())
 {
+
+  $result = mysqli_query($con, "SELECT balance FROM wallet where customer_id = $user_id");
+  $walletBalance = 0;
+
+  while($row = mysqli_fetch_array($result)){
+    $walletBalance = $row['balance'];
+  }
+
   $result = mysqli_query($con, "SELECT * FROM users where id = $user_id");
   while($row = mysqli_fetch_array($result)){
   $name = $row['name'];	
@@ -247,9 +255,12 @@ if($_SESSION['customer_sid']==session_id())
                       <div class="row">
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Pay
+
+                            <button <?php if(($walletBalance - $total) < 0){echo 'disabled';} ?> class="btn cyan waves-effect waves-light right" type="submit" name="action">Pay
                               <i class="mdi-content-send right"></i>
                             </button>
+
+                            <a class="btn btn-info" href="deposit.php">Deposit</a>
                           </div>
                         </div>
                       </div>

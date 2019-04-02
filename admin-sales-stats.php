@@ -37,13 +37,6 @@ include 'includes/connect.php';
       $totalRevenue = $totalRevenue + $rev;
     }
 
-
-
-
-
-
-
-
     ?>
 
 <!DOCTYPE html>
@@ -171,10 +164,11 @@ include 'includes/connect.php';
         </div>
         <!--end container-->
         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">Item Id</th>
               <th scope="col">Item Name</th>
               <th scope="col">Quantity Sold</th>
               <th scope="col">Revenue</th>
@@ -249,7 +243,7 @@ include 'includes/connect.php';
       var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
-          text: "Quantity of Food Pie-Chart"
+          text: "Quantity of Food Sold"
         },
         data: [{
           type: "pie",
@@ -265,10 +259,119 @@ include 'includes/connect.php';
           ]
         }]
       });
+
+      var chart2 = new CanvasJS.Chart("chartContainer2", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+          text: "Sales Data"
+        },
+        axisX: {
+          valueFormatString: "MMM"
+        },
+        axisY: {
+          prefix: "৳",
+          labelFormatter: addSymbols
+        },
+        toolTip: {
+          shared: true
+        },
+        legend: {
+          cursor: "pointer",
+          itemclick: toggleDataSeries
+        },
+        data: [
+        {
+          type: "column",
+          name: "Actual Sales",
+          showInLegend: true,
+          xValueFormatString: "MMMM YYYY",
+          yValueFormatString: "৳#,##0",
+          dataPoints: [
+            { x: new Date(2019, 0), y: 20000 },
+            { x: new Date(2019, 1), y: 30000 },
+            { x: new Date(2019, 2), y: 25000 },
+            { x: new Date(2019, 3), y: 70000, indexLabel: "High Renewals" },
+            { x: new Date(2019, 4), y: 50000 },
+            { x: new Date(2019, 5), y: 35000 },
+            { x: new Date(2019, 6), y: 30000 },
+            { x: new Date(2019, 7), y: 43000 },
+            { x: new Date(2019, 8), y: 35000 },
+            { x: new Date(2019, 9), y:  30000},
+            { x: new Date(2019, 10), y: 40000 },
+            { x: new Date(2019, 11), y: 50000 },
+          ]
+        }, 
+        {
+          type: "line",
+          name: "Expected Sales",
+          showInLegend: true,
+          yValueFormatString: "৳#,##0",
+          dataPoints: [
+            { x: new Date(2019, 0), y: 40000 },
+            { x: new Date(2019, 1), y: 42000 },
+            { x: new Date(2019, 2), y: 45000 },
+            { x: new Date(2019, 3), y: 45000 },
+            { x: new Date(2019, 4), y: 47000 },
+            { x: new Date(2019, 5), y: 43000 },
+            { x: new Date(2019, 6), y: 42000 },
+            { x: new Date(2019, 7), y: 43000 },
+            { x: new Date(2019, 8), y: 41000 },
+            { x: new Date(2019, 9), y: 45000 },
+            { x: new Date(2019, 10), y: 42000 },
+            { x: new Date(2019, 11), y: 50000 }
+          ]
+        },
+        {
+          type: "area",
+          name: "Profit",
+          markerBorderColor: "white",
+          markerBorderThickness: 2,
+          showInLegend: true,
+          yValueFormatString: "৳#,##0",
+          dataPoints: [
+            { x: new Date(2019, 0), y: 5000 },
+            { x: new Date(2019, 1), y: 7000 },
+            { x: new Date(2019, 2), y: 6000},
+            { x: new Date(2019, 3), y: 30000 },
+            { x: new Date(2019, 4), y: 20000 },
+            { x: new Date(2019, 5), y: 15000 },
+            { x: new Date(2019, 6), y: 13000 },
+            { x: new Date(2019, 7), y: 20000 },
+            { x: new Date(2019, 8), y: 15000 },
+            { x: new Date(2019, 9), y:  10000},
+            { x: new Date(2019, 10), y: 19000 },
+            { x: new Date(2019, 11), y: 22000 }
+          ]
+        }]
+      });
+
+      function addSymbols(e) {
+        var suffixes = ["", "K", "M", "B"];
+        var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
+
+        if(order > suffixes.length - 1)                 
+          order = suffixes.length - 1;
+
+        var suffix = suffixes[order];      
+        return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+      }
+
+      function toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+          e.dataSeries.visible = false;
+        } else {
+          e.dataSeries.visible = true;
+        }
+        e.chart2.render();
+      }
+
       chart.render();
+      chart2.render();
 
       }
     </script>
+    
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
