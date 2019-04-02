@@ -3,7 +3,19 @@ include 'includes/connect.php';
 include 'includes/wallet.php';
 
 	if($_SESSION['customer_sid']==session_id())
-	{
+	{ 
+
+    $result = mysqli_query($con, "SELECT * FROM items");
+
+    $itemCalorie = array();
+    $itemIds = array();
+
+    while($row = mysqli_fetch_array($result)){
+        array_push($itemCalorie, $row['calorie']);
+        array_push($itemIds, $row['id']);
+    }
+
+
 		?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,7 +199,6 @@ include 'includes/wallet.php';
               <textarea id="description" name="description" class="materialize-textarea"></textarea>
               <label for="description" class="">Any note(optional)</label>
 			  </div>
-			  <div>
 			  <div class="input-field col s12">
                               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Order
                                 <i class="mdi-content-send right"></i>
@@ -285,12 +296,30 @@ include 'includes/wallet.php';
       var count;
       //var countEl = document.getElementById("count");
 
+
+      var calorieArray = new Array();
+      var idArray = new Array();
+
+      <?php 
+
+        for($i = 0; $i < count($itemIds); $i++){
+            echo 'idArray.push('.$itemIds[$i].');';
+            echo 'calorieArray.push('.$itemCalorie[$i].');';
+        }
+
+      ?>
+
+      var totalCalorie = 0;
+
       function plusFood(plusId){
+
           var count = document.getElementById(plusId).value;
 
           if (count < 10){
             count++;
             document.getElementById(plusId).value = count;
+            totalCalorie = totalCalorie +  calorieArray[plusId - 1];
+
           } else{
             return;
           }
@@ -302,10 +331,16 @@ include 'includes/wallet.php';
         if (count > 0) {
           count--;
           document.getElementById(minusId).value = count;
+          totalCalorie = totalCalorie - calorieArray[minusId - 1];
         } else{
            return;
         }
       }
+  </script>
+
+  <script type="text/javascript">
+    
+
   </script>
 
   <script type="text/javascript">
