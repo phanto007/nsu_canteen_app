@@ -92,7 +92,7 @@ include 'includes/wallet.php';
 
   <!-- START HEADER -->
       <?php
-          include 'includes/header.php';
+          include 'includes/admin_header.php';
       ?>
   <!-- END HEADER -->
 
@@ -104,7 +104,7 @@ include 'includes/wallet.php';
     <div class="wrapper">
 
       <?php
-          include 'includes/sidebar.php';
+          include 'includes/admin_sidebar.php';
       ?>
 
       <!-- //////////////////////////////////////////////////////////////////////////// -->
