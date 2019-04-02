@@ -1,9 +1,10 @@
 <?php
 include '../includes/connect.php';
+include '../includes/functions.php';
 //define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
-
 if(isset($_POST["action"]) && !empty($_FILES["file"]["name"])) {
+	echo "in";
 	$name = $_POST['name'];
 	$price = $_POST['price'];
 	$calorie = $_POST['calorie'];
@@ -23,6 +24,8 @@ if(isset($_POST["action"]) && !empty($_FILES["file"]["name"])) {
 		$con->query($sql);
 		header("location: ../admin-page.php");
 	}
+
+	sendNotificationAll("New Item Available!",$name."\nPrice: ৳".$price, $fileName);
 }
 
 ?>
