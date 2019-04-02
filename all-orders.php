@@ -186,11 +186,13 @@ include 'includes/connect.php';
 								if(!$deleted){
 								echo '<br><br><button class="btn waves-effect waves-light right submit" type="submit" name="action">Change Status
                                               <i class="mdi-content-clear right"></i> 
-										</button>
-
-                    <a class="btn waves-effect waves-light left submit" href="generate_qr.php?o_id='.$order_id.'" target="_blank">Show QR
+										</button>';
+                if(!$is_manual){
+                    echo '<a class="btn waves-effect waves-light left submit" href="generate_qr.php?o_id='.$order_id.'" target="_blank">Show QR
                                               <i class="mdi-content-clear right"></i> 
-                    </a>
+                    </a>';
+                  }
+                  echo'
 										</form>';
 								}
 								echo'</div></li>'.'<hr style="height: 0px; border-top: 5px solid black">';
