@@ -1,19 +1,17 @@
 <?php
 include 'includes/connect.php';
 include 'includes/wallet.php';
-$continue=0;
+
 $total = 0;
 if($_SESSION['customer_sid']==session_id())
 {
-			$continue=1;
-}
+
 
 $result = mysqli_query($con, "SELECT * FROM users where id = $user_id");
 while($row = mysqli_fetch_array($result)){
 	$name = $row['name'];
 }
 
-if($continue){
 ?>
 
 <!DOCTYPE html>
@@ -236,12 +234,6 @@ foreach ($_POST as $key => $value)
 	}
 	else
 	{
-		if($_SESSION['admin_sid']==session_id())
-		{
-			header("location:admin-page.php");		
-		}
-		else{
-			header("location:login.php");
-		}
+		header("location:login.php");
 	}
 ?>

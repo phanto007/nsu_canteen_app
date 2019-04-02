@@ -129,7 +129,7 @@ include 'includes/wallet.php';
         <div class="container">
           <p class="caption">Order your food here.</p>
           <div class="divider"></div>
-		      <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
+		      <form class="formValidate" id="formValidate" method="post" action="place-order-admin.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
                 <h4 class="header">Order Food</h4>

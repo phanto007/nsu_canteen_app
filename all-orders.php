@@ -102,7 +102,10 @@ include 'includes/connect.php';
                     <h4 class="header">List</h4>
                     <ul id="issues-collection" class="collection">';
 					while($row = mysqli_fetch_array($sql))
-					{
+					{ 
+            $is_manual = $row['is_manual_order'];
+
+            
 						$status = $row['status'];
 						$deleted = $row['deleted'];
 						echo '<li class="collection-item avatar">
@@ -131,14 +134,24 @@ include 'includes/connect.php';
 						$sql3 = mysqli_query($con, "SELECT * FROM users WHERE id = $customer_id;");
 							while($row3 = mysqli_fetch_array($sql3))
 							{
-							echo '<li class="collection-item">
+
+              if($is_manual){
+                echo '<li class="collection-item">
                             <div class="row">
-							<p><strong>Name: </strong>'.$row3['name'].'</p>
-							'.($row3['contact'] == '' ? '' : '<p><strong>Contact: </strong>'.$row3['contact'].'</p>').'	
-							'.($row3['email'] == '' ? '' : '<p><strong>Email: </strong>'.$row3['email'].'</p>').'		
-							'.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'								
-                            </li>';							
-							}
+              <p><strong>Cashier: </strong>'.$row3['name'].'</p>
+              '.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'                
+                            </li>';   
+              }else{
+                echo '<li class="collection-item">
+                              <div class="row">
+                <p><strong>Name: </strong>'.$row3['name'].'</p>
+                '.($row3['contact'] == '' ? '' : '<p><strong>Contact: </strong>'.$row3['contact'].'</p>').' 
+                '.($row3['email'] == '' ? '' : '<p><strong>Email: </strong>'.$row3['email'].'</p>').'   
+                '.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'                
+                              </li>';     
+              }
+  											
+						}
 						while($row1 = mysqli_fetch_array($sql1))
 						{
 							$item_id = $row1['item_id'];
