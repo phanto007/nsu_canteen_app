@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 31, 2019 at 02:47 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Apr 02, 2019 at 01:57 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -105,12 +105,26 @@ INSERT INTO `items` (`id`, `name`, `price`, `calorie`, `image`, `deleted`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `manual_order_info`
+--
+
+CREATE TABLE `manual_order_info` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `customer_contact` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
+  `is_manual_order` tinyint(1) NOT NULL DEFAULT '0',
   `address` varchar(300) NOT NULL,
   `description` varchar(300) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -121,56 +135,65 @@ CREATE TABLE `orders` (
   `status_delivered` tinyint(1) NOT NULL DEFAULT '0',
   `status_delivered_2` tinyint(1) NOT NULL,
   `status_delivered_3` tinyint(1) NOT NULL,
-  `deleted` tinyint(4) NOT NULL DEFAULT '0'
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `address`, `description`, `date`, `payment_type`, `total`, `status`, `verification_string`, `status_delivered`, `status_delivered_2`, `status_delivered_3`, `deleted`) VALUES
-(1, 2, 'Address 2', 'Sample Description 1', '2017-03-28 17:32:41', 'Wallet', 150, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(2, 2, 'New address 2', '', '2017-03-28 17:43:05', 'Wallet', 130, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(3, 3, 'Address 3', 'Sample Description 2', '2017-03-28 19:49:33', 'Cash On Delivery', 130, 'Yet to be delivered', '', 0, 1, 1, 0),
-(4, 3, 'Address 3', '', '2017-03-28 19:52:01', 'Cash On Delivery', 130, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(5, 3, 'New Address 3', '', '2017-03-28 20:47:28', 'Wallet', 285, 'Paused', '', 0, 1, 1, 0),
-(6, 3, 'New Address 3', '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(7, 2, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', '', 0, 1, 1, 0),
-(8, 10, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(9, 10, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', '', 0, 1, 1, 1),
-(10, 11, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 1, 1, 1, 1),
-(11, 11, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 1, 1, 1, 0),
-(12, 11, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 1, 1, 1, 0),
-(13, 11, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 1, 1, 1, 0),
-(15, 11, '', '', '2019-03-18 13:36:32', 'Wallet', 25, 'Cancelled by Customer', 'LLcgfyc8NG', 1, 1, 1, 1),
-(16, 11, '', '', '2019-03-18 14:04:25', 'Wallet', 20, 'Verified', '2AAIsOeFA1', 1, 1, 1, 0),
-(17, 11, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Cancelled by Customer', 'KSBs1r1zUq', 1, 1, 1, 1),
-(18, 11, '', '', '2019-03-18 15:50:08', 'Wallet', 50, 'Verified', 'hNDd9KbZv1', 1, 1, 1, 0),
-(19, 11, '', '', '2019-03-18 15:59:44', 'Wallet', 45, 'Cancelled by Customer', 'w0BuVBw0L4', 1, 1, 1, 1),
-(20, 11, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Ready for pickup', 'a7nl4g8MbT', 1, 1, 1, 0),
-(21, 11, '', '', '2019-03-18 16:42:20', 'Wallet', 25, 'Ready for pickup', 'FUHRtagh35', 1, 1, 1, 0),
-(22, 11, '', '', '2019-03-18 17:53:41', 'Wallet', 125, 'Ready for pickup', 'i6PtvOpdpB', 1, 1, 1, 0),
-(23, 11, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 1, 1, 0),
-(24, 11, '', '', '2019-03-18 19:47:11', 'Wallet', 100, 'Verified', 'R1RonOWRJ4', 1, 1, 1, 0),
-(25, 11, '', '', '2019-03-19 10:50:31', 'Wallet', 55, 'Ready for pickup', '9biflchizk', 1, 1, 1, 0),
-(26, 11, '', '', '2019-03-19 12:20:57', 'Wallet', 25, 'Yet to be delivered', 'fQxE6u9Xch', 1, 1, 1, 0),
-(27, 11, '', '', '2019-03-19 12:37:29', 'Wallet', 45, 'Ready for pickup', 'jGwwx01Pl0', 1, 1, 1, 0),
-(28, 11, '', '', '2019-03-19 13:56:36', 'Wallet', 175, 'Cancelled by Customer', 'LpvAicYZmb', 1, 1, 1, 1),
-(29, 11, '', '', '2019-03-19 19:19:37', 'Wallet', 95, 'Cancelled by Customer', 'vYj3axdt3g', 1, 1, 1, 1),
-(30, 11, '', 'Fresh food please! ', '2019-03-20 09:23:14', 'Wallet', 95, 'Verified', '3f3kWQ9lIf', 1, 1, 1, 0),
-(31, 11, '', '', '2019-03-22 17:54:49', 'Wallet', 25, 'Yet to be delivered', 'OSHafLftPi', 1, 1, 1, 0),
-(32, 11, '', '', '2019-03-22 18:03:47', 'Wallet', 25, 'Yet to be delivered', 'aAIFXd0SPT', 1, 1, 1, 0),
-(33, 11, '', '', '2019-03-22 19:00:55', 'Wallet', 50, 'Yet to be delivered', 'G3UWdCVk6f', 1, 1, 1, 0),
-(34, 11, '', '', '2019-03-22 19:04:09', 'Wallet', 0, 'Yet to be delivered', 'CuCZJXBcw9', 1, 1, 1, 0),
-(35, 11, '', '', '2019-03-22 19:34:43', 'Wallet', 50, 'Verified', 'dOEsYhWgZV', 1, 1, 1, 0),
-(36, 11, '', '', '2019-03-27 13:02:11', 'Wallet', 25, 'Processing', 'b1Yo1xwFRq', 1, 1, 1, 0),
-(37, 11, '', '', '2019-03-27 14:02:05', 'Wallet', 35, 'Yet to be delivered', '0jYCuiP4a4', 1, 1, 1, 0),
-(38, 11, '', '', '2019-03-27 14:02:09', 'Wallet', 35, 'Verified', 'PqJFK0l7yn', 1, 1, 1, 0),
-(39, 11, '', '', '2019-03-27 14:21:39', 'Wallet', 20, 'Paused', 'uCkYghBDiC', 1, 0, 1, 0),
-(40, 11, '', '', '2019-03-27 15:00:15', 'Wallet', 70, 'Delivered', 'WQFSUmmfb0', 1, 0, 1, 0),
-(41, 11, '', '', '2019-03-27 15:07:19', 'Wallet', 250, 'Yet to be delivered', 'ugcb7Q7cVa', 1, 0, 1, 0),
-(42, 11, '', '', '2019-03-30 17:48:18', 'Wallet', 90, 'Cancelled by Customer', 'mTBqgQtqqd', 1, 0, 1, 1),
-(43, 11, '', '', '2019-03-30 20:46:25', 'Wallet', 100, 'Verified', 'DW4qUC1Q6O', 1, 1, 1, 0);
+INSERT INTO `orders` (`id`, `customer_id`, `is_manual_order`, `address`, `description`, `date`, `payment_type`, `total`, `status`, `verification_string`, `status_delivered`, `status_delivered_2`, `status_delivered_3`, `deleted`) VALUES
+(1, 2, 0, 'Address 2', 'Sample Description 1', '2017-03-28 17:32:41', 'Wallet', 150, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(2, 2, 0, 'New address 2', '', '2017-03-28 17:43:05', 'Wallet', 130, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(3, 3, 0, 'Address 3', 'Sample Description 2', '2017-03-28 19:49:33', 'Cash On Delivery', 130, 'Yet to be delivered', '', 0, 1, 1, 0),
+(4, 3, 0, 'Address 3', '', '2017-03-28 19:52:01', 'Cash On Delivery', 130, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(5, 3, 0, 'New Address 3', '', '2017-03-28 20:47:28', 'Wallet', 285, 'Paused', '', 0, 1, 1, 0),
+(6, 3, 0, 'New Address 3', '', '2017-03-30 00:43:31', 'Wallet', 325, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(7, 2, 0, '12345', '', '2019-03-10 15:18:08', 'Cash On Delivery', 45, 'Yet to be delivered', '', 0, 1, 1, 0),
+(8, 10, 0, '', '', '2019-03-10 20:05:03', 'Wallet', 85, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(9, 10, 0, '', '', '2019-03-10 20:06:22', 'Wallet', 45, 'Cancelled by Customer', '', 0, 1, 1, 1),
+(10, 11, 0, '', '', '2019-03-12 13:59:39', 'Wallet', 45, 'Cancelled by Customer', '', 1, 1, 1, 1),
+(11, 11, 0, '', '', '2019-03-12 14:06:32', 'Wallet', 45, 'Verified', '123', 1, 1, 1, 0),
+(12, 11, 0, '', '', '2019-03-17 20:10:38', 'Wallet', 45, 'Verified', '1aRMpsQhOf', 1, 1, 1, 0),
+(13, 11, 0, '', '', '2019-03-18 11:48:56', 'Wallet', 45, 'Verified', 'M0CBi8OLsG', 1, 1, 1, 0),
+(15, 11, 0, '', '', '2019-03-18 13:36:32', 'Wallet', 25, 'Cancelled by Customer', 'LLcgfyc8NG', 1, 1, 1, 1),
+(16, 11, 0, '', '', '2019-03-18 14:04:25', 'Wallet', 20, 'Verified', '2AAIsOeFA1', 1, 1, 1, 0),
+(17, 11, 0, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Cancelled by Customer', 'KSBs1r1zUq', 1, 1, 1, 1),
+(18, 11, 0, '', '', '2019-03-18 15:50:08', 'Wallet', 50, 'Verified', 'hNDd9KbZv1', 1, 1, 1, 0),
+(19, 11, 0, '', '', '2019-03-18 15:59:44', 'Wallet', 45, 'Cancelled by Customer', 'w0BuVBw0L4', 1, 1, 1, 1),
+(20, 11, 0, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Ready for pickup', 'a7nl4g8MbT', 1, 1, 1, 0),
+(21, 11, 0, '', '', '2019-03-18 16:42:20', 'Wallet', 25, 'Ready for pickup', 'FUHRtagh35', 1, 1, 1, 0),
+(22, 11, 0, '', '', '2019-03-18 17:53:41', 'Wallet', 125, 'Ready for pickup', 'i6PtvOpdpB', 1, 1, 1, 0),
+(23, 11, 0, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 1, 1, 0),
+(24, 11, 0, '', '', '2019-03-18 19:47:11', 'Wallet', 100, 'Verified', 'R1RonOWRJ4', 1, 1, 1, 0),
+(25, 11, 0, '', '', '2019-03-19 10:50:31', 'Wallet', 55, 'Ready for pickup', '9biflchizk', 1, 1, 1, 0),
+(26, 11, 0, '', '', '2019-03-19 12:20:57', 'Wallet', 25, 'Yet to be delivered', 'fQxE6u9Xch', 1, 1, 1, 0),
+(27, 11, 0, '', '', '2019-03-19 12:37:29', 'Wallet', 45, 'Ready for pickup', 'jGwwx01Pl0', 1, 1, 1, 0),
+(28, 11, 0, '', '', '2019-03-19 13:56:36', 'Wallet', 175, 'Cancelled by Customer', 'LpvAicYZmb', 1, 1, 1, 1),
+(29, 11, 0, '', '', '2019-03-19 19:19:37', 'Wallet', 95, 'Cancelled by Customer', 'vYj3axdt3g', 1, 1, 1, 1),
+(30, 11, 0, '', 'Fresh food please! ', '2019-03-20 09:23:14', 'Wallet', 95, 'Verified', '3f3kWQ9lIf', 1, 1, 1, 0),
+(31, 11, 0, '', '', '2019-03-22 17:54:49', 'Wallet', 25, 'Yet to be delivered', 'OSHafLftPi', 1, 1, 1, 0),
+(32, 11, 0, '', '', '2019-03-22 18:03:47', 'Wallet', 25, 'Yet to be delivered', 'aAIFXd0SPT', 1, 1, 1, 0),
+(33, 11, 0, '', '', '2019-03-22 19:00:55', 'Wallet', 50, 'Yet to be delivered', 'G3UWdCVk6f', 1, 1, 1, 0),
+(34, 11, 0, '', '', '2019-03-22 19:04:09', 'Wallet', 0, 'Yet to be delivered', 'CuCZJXBcw9', 1, 1, 1, 0),
+(35, 11, 0, '', '', '2019-03-22 19:34:43', 'Wallet', 50, 'Verified', 'dOEsYhWgZV', 1, 1, 1, 0),
+(36, 11, 0, '', '', '2019-03-27 13:02:11', 'Wallet', 25, 'Processing', 'b1Yo1xwFRq', 1, 1, 1, 0),
+(37, 11, 0, '', '', '2019-03-27 14:02:05', 'Wallet', 35, 'Yet to be delivered', '0jYCuiP4a4', 1, 1, 1, 0),
+(38, 11, 0, '', '', '2019-03-27 14:02:09', 'Wallet', 35, 'Verified', 'PqJFK0l7yn', 1, 1, 1, 0),
+(39, 11, 0, '', '', '2019-03-27 14:21:39', 'Wallet', 20, 'Paused', 'uCkYghBDiC', 1, 0, 1, 0),
+(40, 11, 0, '', '', '2019-03-27 15:00:15', 'Wallet', 70, 'Delivered', 'WQFSUmmfb0', 1, 0, 1, 0),
+(41, 11, 0, '', '', '2019-03-27 15:07:19', 'Wallet', 250, 'Yet to be delivered', 'ugcb7Q7cVa', 1, 0, 1, 0),
+(42, 11, 0, '', '', '2019-03-30 17:48:18', 'Wallet', 90, 'Cancelled by Customer', 'mTBqgQtqqd', 1, 0, 1, 1),
+(43, 11, 0, '', '', '2019-03-30 20:46:25', 'Wallet', 100, 'Verified', 'DW4qUC1Q6O', 1, 1, 1, 0),
+(44, 1, 1, '', '', '2019-04-02 16:01:34', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(45, 1, 1, '', '', '2019-04-02 16:06:57', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(46, 11, 0, '', '', '2019-04-02 16:09:25', 'Wallet', 10, 'Yet to be delivered', '66tItdkT2h', 1, 0, 1, 0),
+(47, 1, 1, '', 'Rifat is a fat boy', '2019-04-02 17:25:40', 'Wallet', 10, 'Yet to be delivered', '', 0, 0, 1, 0),
+(48, 1, 1, '', 'rrr', '2019-04-02 17:31:38', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(49, 1, 1, '', 'asdasd', '2019-04-02 17:32:14', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(50, 1, 1, '', 'asdasd', '2019-04-02 17:33:10', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(51, 1, 1, '', 'asd', '2019-04-02 17:36:02', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(52, 1, 1, '', 'asd', '2019-04-02 17:51:58', 'Cash On Delivery', 25, 'Yet to be delivered', '', 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -254,7 +277,16 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (61, 42, 1, 1, 25),
 (62, 42, 2, 1, 45),
 (63, 42, 3, 1, 20),
-(64, 43, 1, 4, 100);
+(64, 43, 1, 4, 100),
+(65, 44, 1, 1, 25),
+(66, 45, 1, 1, 25),
+(67, 46, 10, 1, 10),
+(68, 47, 10, 1, 10),
+(69, 48, 1, 1, 25),
+(70, 49, 1, 1, 25),
+(71, 50, 1, 1, 25),
+(72, 51, 1, 1, 25),
+(73, 52, 1, 1, 25);
 
 -- --------------------------------------------------------
 
@@ -374,7 +406,7 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 50),
+(10, 11, 40),
 (11, 12, 1000),
 (12, 13, 50),
 (13, 14, 0);
@@ -397,6 +429,12 @@ ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
   ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `manual_order_info`
+--
+ALTER TABLE `manual_order_info`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
@@ -465,16 +503,22 @@ ALTER TABLE `items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `manual_order_info`
+--
+ALTER TABLE `manual_order_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tickets`
