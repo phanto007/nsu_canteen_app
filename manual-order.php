@@ -13,7 +13,7 @@ include 'includes/wallet.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>Order Food</title>
+  <title>Manual Order</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
@@ -117,7 +117,7 @@ include 'includes/wallet.php';
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Order</h5>
+                <h5 class="breadcrumbs-title">Order Food for Customers</h5>
               </div>
             </div>
           </div>
@@ -127,8 +127,8 @@ include 'includes/wallet.php';
 
         <!--start container-->
         <div class="container">
-          <p class="caption">Order your food here.</p>
-          <div class="divider"></div>
+          <p class="caption"><i class="mdi-action-search"></i> Search food items</p>
+          <input type="text" id="myInput" onkeyup="searchFood()" placeholder="Search for food items...">
 		      <form class="formValidate" id="formValidate" method="post" action="place-order-admin.php" novalidate="novalidate">
             <div class="row">
               <div class="col s12 m4 l3">
@@ -175,7 +175,7 @@ include 'includes/wallet.php';
 			  <div class="input-field col s12">
               <i class="mdi-editor-mode-edit prefix"></i>
               <textarea id="description" name="description" class="materialize-textarea"></textarea>
-              <label for="description" class="">Any note(optional)</label>
+              <label for="description" class="">Customer Contact Information</label>
 			  </div>
 			  <div>
 			  <div class="input-field col s12">
@@ -295,8 +295,34 @@ include 'includes/wallet.php';
         } else{
            return;
         }
-      }s
+      }
   </script>
+
+  <script type="text/javascript">
+
+      function searchFood() {
+        // Declare variables 
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data-table-customer");
+        tr = table.getElementsByTagName("tr");
+
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          } 
+        }
+      }
+</script>
 </body>
 
 </html>

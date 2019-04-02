@@ -251,7 +251,7 @@ if($_SESSION['customer_sid']==session_id())
                       <div class="row">
                         <div class="input-field col s12">
 							<label for="payment_type">Payment Type</label><br><br>
-							<select id="payment_type" name="payment_type">
+							<select onchange="myFunction()" id="payment_type" name="payment_type">
 									<option value="Wallet" selected>Wallet</option>
 									<option value="Cash On Delivery" <?php if(!$verified) echo 'disabled';?>>Cash on Delivery</option>							
 							</select>
@@ -261,7 +261,12 @@ if($_SESSION['customer_sid']==session_id())
                         <div class="row">
                           <div class="input-field col s12">
 
-                            <button <?php if(($walletBalance - $total) < 0){echo 'disabled';} ?> class="btn cyan waves-effect waves-light right" type="submit" name="action">Pay
+                            <button <?php if(($walletBalance - $total < 0)){echo 'disabled';} ?> 
+
+
+
+
+                            class="btn cyan waves-effect waves-light right" id="selectButton" type="submit" name="action">Pay
                               <i class="mdi-content-send right"></i>
                             </button>
 
@@ -387,6 +392,32 @@ if($_SESSION['customer_sid']==session_id())
 		}
 		});
     </script>
+
+    <script type="text/javascript">
+
+      
+      var total = <?php echo $total; ?>;
+      var walletBalance = <?php echo $walletBalance; ?>;
+
+      function myFunction() {
+      var selectOption = document.getElementById('payment_type');
+      
+      if (selectOption.value == 'Cash On Delivery'){
+        document.getElementById('selectButton').disabled = false;
+      }
+
+        if (selectOption.value == 'Wallet'){
+          if (total > walletBalance){
+            document.getElementById('selectButton').disabled = true;
+          } else {
+              document.getElementById('selectButton').disabled = false;
+          }
+      }
+      
+    }
+
+    </script>
+
 </body>
 
 </html>
