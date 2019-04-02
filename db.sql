@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 01:57 PM
+-- Generation Time: Apr 02, 2019 at 02:01 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -101,19 +101,6 @@ INSERT INTO `items` (`id`, `name`, `price`, `calorie`, `image`, `deleted`) VALUE
 (10, 'test1', 10, 0, 'images/food-items/Cat03.jpg', 0),
 (11, 'Pizza', 120, 1200, 'images/food-items/pizza.jpeg', 0),
 (12, 'Fish and Chips', 300, 700, 'images/food-items/fishandchips.jpeg', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `manual_order_info`
---
-
-CREATE TABLE `manual_order_info` (
-  `id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `customer_name` varchar(100) NOT NULL,
-  `customer_contact` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -431,12 +418,6 @@ ALTER TABLE `items`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indexes for table `manual_order_info`
---
-ALTER TABLE `manual_order_info`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -501,12 +482,6 @@ ALTER TABLE `deposits`
 --
 ALTER TABLE `items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `manual_order_info`
---
-ALTER TABLE `manual_order_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
