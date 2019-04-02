@@ -14,7 +14,7 @@ if($_SESSION['customer_sid']==session_id())
   $rflag = 1;
   foreach ($_POST as $key => $value)
 			{
-				if($key == 'action' || $value == '' || $value == 0){
+				if($key == 'action' || $value == '' || $value == '0'){
 					continue;
 				}
 				if($value>=0){
@@ -164,12 +164,18 @@ if($_SESSION['customer_sid']==session_id())
     echo '<li class="collection-item avatar">
         <i class="mdi-content-content-paste red circle"></i>
         <p><strong>Name: </strong>'.$name.'</p>
-    <p><strong>Contact Number: </strong> '.$contact.'</p>
+    <p><strong>Contact Number: </strong> '.$contact.'</p>';
+
+        if(!empty($_POST['description']))
+    echo '<p><strong>Note: </strong>'.htmlspecialchars($_POST['description']).'</p>';
+
+    echo '
         <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>';
-    
+
+
   foreach ($_POST as $key => $value)
   {
-    if($value == '' || $value == 0){
+    if($value == '' || $value == '0'){
       continue;
     }
     if(is_numeric($key)){
@@ -213,8 +219,7 @@ if($_SESSION['customer_sid']==session_id())
             </div>
         </div>
     </li>';
-    if(!empty($_POST['description']))
-    echo '<li class="collection-item avatar"><p><strong>Note: </strong>'.htmlspecialchars($_POST['description']).'</p></li>';
+    
 ?>
 </ul>
 
@@ -256,7 +261,7 @@ if($_SESSION['customer_sid']==session_id())
 					  <?php
 					  	foreach ($_POST as $key => $value)
 						{
-							if($key == 'action' || $value == '' || $value == 0){
+							if($key == 'action' || $value == '' || $value == '0'){
 								continue;
 							}
 							echo '<input name="'.$key.'" type="hidden" value="'.$value.'">';

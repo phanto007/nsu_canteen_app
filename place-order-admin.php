@@ -11,7 +11,7 @@ if($_SESSION['admin_sid']==session_id())
   $rflag = 1;
   foreach ($_POST as $key => $value)
 			{
-				if($key == 'action' || $value == '' || $value == 0){
+				if($key == 'action' || $value == '' || $value == '0'){
 					continue;
 				}
 				if($value>=0){
@@ -170,7 +170,7 @@ if($_SESSION['admin_sid']==session_id())
     
   foreach ($_POST as $key => $value)
   {
-    if($value == '' || $value == 0){
+    if($value == '' || $value == '0'){
       continue;
     }
     if(is_numeric($key)){
@@ -233,7 +233,7 @@ if($_SESSION['admin_sid']==session_id())
 <div>
                 <div class="card-panel">
                   <div class="row">
-                    <form class="formValidate col s12 m12 l6" id="formValidate" method="post" action="routers/order-router.php" novalidate="novalidate">
+                    <form class="formValidate col s12 m12 l6" id="formValidate" method="post" action="confirm-order-admin.php" novalidate="novalidate">
                       <div class="row">
                         <div class="input-field col s12">
 							<label for="payment_type">Payment Type</label><br><br>
@@ -254,7 +254,7 @@ if($_SESSION['admin_sid']==session_id())
 					  <?php
 					  	foreach ($_POST as $key => $value)
 						{
-							if($key == 'action' || $value == '' || $value == 0){
+							if($key == 'action' || $value == '' || $value == '0'){
 								continue;
 							}
 							echo '<input name="'.$key.'" type="hidden" value="'.$value.'">';
