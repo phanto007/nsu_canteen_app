@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 02:01 PM
+-- Generation Time: May 04, 2019 at 08:04 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `table3`
+-- Database: `nsu`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,15 @@ INSERT INTO `deposits` (`id`, `customer_id`, `amount`, `received_amount`, `respo
 (22, 11, 123, 0, '', '', '2019-03-27 08:11:59'),
 (23, 11, 4000, 4000, '', '1000', '2019-03-27 08:14:06'),
 (24, 11, 50, 0, '', '', '2019-03-27 09:03:20'),
-(25, 11, 50, 50, '', '1000', '2019-03-27 09:03:31');
+(25, 11, 50, 50, '', '1000', '2019-03-27 09:03:31'),
+(26, 12, 1000, 0, '', '', '2019-04-18 05:20:26'),
+(27, 12, 700, 0, '', '', '2019-04-18 06:30:33'),
+(28, 12, 5000, 5000, '', '1000', '2019-04-18 07:46:19'),
+(29, 12, 2323, 2323, '', '1000', '2019-04-18 08:58:14'),
+(30, 12, 1000, 0, '', '', '2019-04-18 09:24:25'),
+(31, 11, 2000, 0, '', '', '2019-04-27 07:31:26'),
+(32, 11, 2000, 0, '', '', '2019-04-27 07:31:30'),
+(33, 11, 2000, 0, '', '', '2019-04-27 07:33:37');
 
 -- --------------------------------------------------------
 
@@ -148,7 +156,7 @@ INSERT INTO `orders` (`id`, `customer_id`, `is_manual_order`, `address`, `descri
 (17, 11, 0, '', '', '2019-03-18 14:40:46', 'Wallet', 25, 'Cancelled by Customer', 'KSBs1r1zUq', 1, 1, 1, 1),
 (18, 11, 0, '', '', '2019-03-18 15:50:08', 'Wallet', 50, 'Verified', 'hNDd9KbZv1', 1, 1, 1, 0),
 (19, 11, 0, '', '', '2019-03-18 15:59:44', 'Wallet', 45, 'Cancelled by Customer', 'w0BuVBw0L4', 1, 1, 1, 1),
-(20, 11, 0, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Ready for pickup', 'a7nl4g8MbT', 1, 1, 1, 0),
+(20, 11, 0, '', '', '2019-03-18 16:19:13', 'Wallet', 100, 'Verified', 'a7nl4g8MbT', 1, 1, 1, 0),
 (21, 11, 0, '', '', '2019-03-18 16:42:20', 'Wallet', 25, 'Ready for pickup', 'FUHRtagh35', 1, 1, 1, 0),
 (22, 11, 0, '', '', '2019-03-18 17:53:41', 'Wallet', 125, 'Ready for pickup', 'i6PtvOpdpB', 1, 1, 1, 0),
 (23, 11, 0, '', '', '2019-03-18 18:23:12', 'Wallet', 55, 'Ready for pickup', 'YFmSrmaNVN', 1, 1, 1, 0),
@@ -168,19 +176,36 @@ INSERT INTO `orders` (`id`, `customer_id`, `is_manual_order`, `address`, `descri
 (37, 11, 0, '', '', '2019-03-27 14:02:05', 'Wallet', 35, 'Yet to be delivered', '0jYCuiP4a4', 1, 1, 1, 0),
 (38, 11, 0, '', '', '2019-03-27 14:02:09', 'Wallet', 35, 'Verified', 'PqJFK0l7yn', 1, 1, 1, 0),
 (39, 11, 0, '', '', '2019-03-27 14:21:39', 'Wallet', 20, 'Paused', 'uCkYghBDiC', 1, 0, 1, 0),
-(40, 11, 0, '', '', '2019-03-27 15:00:15', 'Wallet', 70, 'Delivered', 'WQFSUmmfb0', 1, 0, 1, 0),
+(40, 11, 0, '', '', '2019-03-27 15:00:15', 'Wallet', 70, 'Verified', 'WQFSUmmfb0', 1, 1, 1, 0),
 (41, 11, 0, '', '', '2019-03-27 15:07:19', 'Wallet', 250, 'Yet to be delivered', 'ugcb7Q7cVa', 1, 0, 1, 0),
 (42, 11, 0, '', '', '2019-03-30 17:48:18', 'Wallet', 90, 'Cancelled by Customer', 'mTBqgQtqqd', 1, 0, 1, 1),
 (43, 11, 0, '', '', '2019-03-30 20:46:25', 'Wallet', 100, 'Verified', 'DW4qUC1Q6O', 1, 1, 1, 0),
 (44, 1, 1, '', '', '2019-04-02 16:01:34', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
 (45, 1, 1, '', '', '2019-04-02 16:06:57', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
-(46, 11, 0, '', '', '2019-04-02 16:09:25', 'Wallet', 10, 'Yet to be delivered', '66tItdkT2h', 1, 0, 1, 0),
+(46, 11, 0, '', '', '2019-04-02 16:09:25', 'Wallet', 10, 'Verified', '66tItdkT2h', 1, 1, 1, 0),
 (47, 1, 1, '', 'Rifat is a fat boy', '2019-04-02 17:25:40', 'Wallet', 10, 'Yet to be delivered', '', 0, 0, 1, 0),
 (48, 1, 1, '', 'rrr', '2019-04-02 17:31:38', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
 (49, 1, 1, '', 'asdasd', '2019-04-02 17:32:14', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
 (50, 1, 1, '', 'asdasd', '2019-04-02 17:33:10', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
 (51, 1, 1, '', 'asd', '2019-04-02 17:36:02', 'Wallet', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
-(52, 1, 1, '', 'asd', '2019-04-02 17:51:58', 'Cash On Delivery', 25, 'Yet to be delivered', '', 0, 0, 1, 0);
+(52, 1, 1, '', 'asd', '2019-04-02 17:51:58', 'Cash On Delivery', 25, 'Yet to be delivered', '', 0, 0, 1, 0),
+(53, 12, 0, '', '', '2019-04-18 11:21:40', 'Wallet', 40, 'Verified', '', 1, 1, 1, 0),
+(54, 12, 0, '', '', '2019-04-18 12:29:10', 'Wallet', 55, 'Verified', '', 1, 1, 1, 0),
+(55, 12, 0, '', '', '2019-04-18 13:01:24', 'Wallet', 40, 'Verified', '', 1, 1, 1, 0),
+(56, 12, 0, '', '', '2019-04-18 13:04:13', 'Wallet', 240, 'Verified', '', 1, 0, 1, 0),
+(57, 12, 0, '', '', '2019-04-18 13:13:01', 'Wallet', 50, 'Verified', '', 1, 1, 1, 0),
+(58, 12, 0, '', '', '2019-04-18 13:24:51', 'Cash On Delivery', 10, 'Ready for pickup', '', 1, 1, 1, 0),
+(59, 12, 0, '', '', '2019-04-18 13:31:09', 'Wallet', 95, 'Verified', '', 1, 1, 1, 0),
+(60, 12, 0, '', '', '2019-04-18 13:37:51', 'Wallet', 40, 'Verified', '', 1, 1, 1, 0),
+(61, 12, 0, '', '', '2019-04-18 14:38:36', 'Wallet', 600, 'Yet to be delivered', '', 1, 0, 1, 0),
+(62, 12, 0, '', '', '2019-04-18 14:54:33', 'Wallet', 240, 'Verified', '', 1, 1, 1, 0),
+(63, 12, 0, '', '', '2019-04-18 15:05:27', 'Wallet', 10, 'Verified', '', 1, 1, 1, 0),
+(64, 12, 0, '', '', '2019-04-18 15:22:44', 'Wallet', 50, 'Yet to be delivered', '', 1, 0, 1, 0),
+(65, 12, 0, '', '', '2019-04-18 15:22:57', 'Wallet', 50, 'Verified', '', 1, 1, 1, 0),
+(66, 12, 0, '', '', '2019-04-18 16:00:43', 'Wallet', 20, 'Verified', '', 1, 1, 1, 0),
+(67, 12, 0, '', '', '2019-04-18 16:28:44', 'Wallet', 240, 'Verified', '', 1, 1, 1, 0),
+(68, 11, 0, '', '', '2019-04-27 13:26:30', 'Wallet', 10, 'Ready for pickup', '', 1, 0, 1, 0),
+(69, 11, 0, '', '', '2019-04-29 18:52:47', 'Wallet', 650, 'Verified', '', 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -273,7 +298,29 @@ INSERT INTO `order_details` (`id`, `order_id`, `item_id`, `quantity`, `price`) V
 (70, 49, 1, 1, 25),
 (71, 50, 1, 1, 25),
 (72, 51, 1, 1, 25),
-(73, 52, 1, 1, 25);
+(73, 52, 1, 1, 25),
+(74, 53, 3, 2, 40),
+(75, 54, 10, 1, 10),
+(76, 54, 2, 1, 45),
+(77, 55, 3, 2, 40),
+(78, 56, 11, 2, 240),
+(79, 57, 10, 3, 30),
+(80, 57, 3, 1, 20),
+(81, 58, 6, 1, 10),
+(82, 59, 2, 1, 45),
+(83, 59, 9, 1, 50),
+(84, 60, 3, 2, 40),
+(85, 61, 12, 2, 600),
+(86, 62, 11, 2, 240),
+(87, 63, 10, 1, 10),
+(88, 64, 9, 1, 50),
+(89, 65, 9, 1, 50),
+(90, 66, 10, 2, 20),
+(91, 67, 11, 2, 240),
+(92, 68, 7, 1, 10),
+(93, 69, 7, 1, 10),
+(94, 69, 5, 2, 40),
+(95, 69, 12, 2, 600);
 
 -- --------------------------------------------------------
 
@@ -362,10 +409,11 @@ INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`, `email`, `add
 (8, 'Customer', 'Test User 13', 'user13', '$2y$12$9XSp5gDV7iGQ/luKH8xpQ.JVlvvXLaqsbv4T2lAXkdAM.QPqp.ra6', 'mail13@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
 (9, 'Customer', 'Test user 14', 'user14', '$2y$12$pIUJ8VzYAj.BIpmMRwE55.4VpgMef0LCCVwqqGCXn9YL.ymeQUYre', 'mail14@example.com', NULL, '', '', 'Bangladesh', 0, NULL, NULL, 0, 0),
 (10, 'Customer', 'Test User 15', 'user15', '$2y$12$FLAP3evlRka/NJv.H7AuwO1wgg3kL.ek5f8v9OP3pzldBtaZNnJ0e', 'mai15@example.com', 'Bashundhara', 'Hello WOrld', '1250', 'Dinajpur', 1234, NULL, NULL, 0, 0),
-(11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', 'North South University, Bashundhara R/A', 'Dhaka', '1205', 'Bangladesh', 12345689, 'lpMyhT4BL4mHs', 2052, 1, 0),
+(11, 'Customer', 'Test User 16', 'user16', '$2y$12$U45/iWmp6uc.qdBBstfvhu5Bie5T0eGRpQXH7WNnuvCtKYn3DhwD6', 'mai16@example.com', 'North South University, Bashundhara R/A', 'Dhaka', '1205', 'Bangladesh', 12345689, 'lpMyhT4BL4mHs', 2589, 1, 0),
 (12, 'Customer', 'Test User 17', 'user17', '$2y$12$IU4gk1w0bt03s.KnVsg8Zu7SZB6AmVnN27zFbQw4HSqQPWT2FIhYG', 'mail17@example.com', NULL, '', '', 'Bangladesh', 0, 'rNmAdLR45mnnU', NULL, 1, 0),
 (13, 'Customer', 'asd', 'user18', '$2y$12$STix7MRkzsJlNYcjZCXW9eDsi2O/SVb.DnAT1R80SgbyVCkoHReVe', 'asd@asd.com', NULL, '', '', 'Bangladesh', 0, 'IA3lMuQwKCU2K', NULL, 0, 0),
-(14, 'Customer', 'Edwardthish', 'Edwardthis', '$2y$12$h4b5xA5JVGeCarK/PqpKWuafp7coQw9/xxfAHmXIZ8OsPx2ZKsn3i', 'khaydaralikas9@mail.ru', NULL, '', '', 'Bangladesh', 0, 'ac9M4gmj5kPsG', NULL, 0, 0);
+(14, 'Customer', 'Edwardthish', 'Edwardthis', '$2y$12$h4b5xA5JVGeCarK/PqpKWuafp7coQw9/xxfAHmXIZ8OsPx2ZKsn3i', 'khaydaralikas9@mail.ru', NULL, '', '', 'Bangladesh', 0, 'ac9M4gmj5kPsG', NULL, 0, 0),
+(15, 'Customer', 'Boschyxp', 'Boschyxp', '$2y$12$TzIhW2/3Z/eb7Qj3jGEAkesXzwH4yo3EkLnRfCUWFab6PW2nk7Pf6', 'bill@vdsina.ru', NULL, '', '', 'Bangladesh', 0, 'Jko3GKBpjhAs5', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -393,10 +441,11 @@ INSERT INTO `wallet` (`id`, `customer_id`, `balance`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 10, 1915),
-(10, 11, 40),
-(11, 12, 1000),
+(10, 11, 2350),
+(11, 12, 6553),
 (12, 13, 50),
-(13, 14, 0);
+(13, 14, 0),
+(14, 15, 0);
 
 --
 -- Indexes for dumped tables
@@ -475,7 +524,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT for table `deposits`
 --
 ALTER TABLE `deposits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -487,13 +536,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -511,13 +560,13 @@ ALTER TABLE `ticket_details`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

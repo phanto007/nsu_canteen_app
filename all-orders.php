@@ -188,7 +188,7 @@ include 'includes/connect.php';
                                               <i class="mdi-content-clear right"></i> 
 										</button>';
                 if(!$is_manual){
-                    echo '<a class="btn waves-effect waves-light left submit" href="generate_qr.php?o_id='.$order_id.'" target="_blank">Show QR
+                    echo '<a class="btn waves-effect waves-light left submit" onclick="openWin('.$order_id.')">Show QR
                                               <i class="mdi-content-clear right"></i> 
                     </a>';
                   }
@@ -239,10 +239,22 @@ include 'includes/connect.php';
     <script type="text/javascript" src="js/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/custom-script.js"></script>
+    <script>
+var myWindow;
+
+function openWin(orderid) {
+  myWindow = window.open("generate_qr.php?o_id="+orderid, "_blank", "width=520, height=700");
+}
+
+function closeWin() {
+  myWindow.close();
+}
+</script>
+
     <script type="text/javascript">
       $( document ).ready(function() {
 
-        var interval = self.setInterval(function(){checkupdates()},1000);
+        var interval = self.setInterval(function(){checkupdates()},7000);
           
       });
 
@@ -250,6 +262,7 @@ include 'includes/connect.php';
         $.ajax({url: "checkstatus3.php", success: function(result){
             if(result==1){
               window.location.reload();
+              closeWin();
             }
           }});
       }

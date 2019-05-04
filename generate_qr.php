@@ -58,6 +58,7 @@ if($_SESSION['admin_sid']==session_id() && isset($_GET['o_id']))
 			  '<h4 style="color:green;">Status: '.$status.'</h4>'.
 			  '<br>';
 		echo $string; 
+
 	}else{
 		$string = '<h3>Order No. '.$o_id.'</h3>'.
 			  '<br>'.
