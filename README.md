@@ -1,2 +1,1 @@
-# nsu_canteen_app
-nsu_canteen_app
+Built an automated food ordering system for North South University cafeteria with e-wallet which can be recharged using any online payments such as credit cards, bkash, online banking, etc. It has a highly advanced queue system which significantly eliminated long queues for food ordering and collecting them. It can also suggest foods based on user’s calorie intake.
